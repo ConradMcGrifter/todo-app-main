@@ -1,7 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+.test-box {
+  width: 50vw;
+  height: 50vh;
+  background: var(--clr-list-bg);
+  -webkit-box-shadow: 0 15px 25px 10px rgba(54, 54, 54, 0.137);
+          box-shadow: 0 15px 25px 10px rgba(54, 54, 54, 0.137);
+}
+
 :root {
-  --clr-list-bg: hsl(0, 0%, 98%);
-  --clr-bg: hsl(236, 33%, 92%);
+  --clr-list-bg: white;
+  --clr-bg: hsl(0, 0%, 98%);
   --clr-text: hsl(235, 19%, 35%);
   --clr-text-completed: hsl(233, 11%, 84%);
   --clr-text-secondary: hsl(236, 9%, 61%);
@@ -10,14 +18,17 @@
 }
 
 .dark-mode {
-  --clr-list-bg: hsl(237, 14%, 26%);
-  --clr-bg: hsl(235, 24%, 19%);
+  background: url("../images/bg-desktop-dark.jpg") no-repeat, var(--clr-bg);
+  background-size: contain;
+  --clr-list-bg: hsl(235, 24%, 19%);
+  --clr-bg: hsl(235, 21%, 11%);
   --clr-text: hsl(234, 39%, 85%);
   --clr-text-completed: hsl(233, 14%, 35%);
   --clr-text-secondary: hsl(233, 14%, 35%);
   --clr-text-secondary-hover: hsl(236, 33%, 92%);
   --clr-box-shadow: hsl(235, 21%, 11%);
   --clr-Dark-grayish-blue: hsl(234, 11%, 52%);
+  --unknown: hsl(237, 14%, 26%);
 }
 
 html {
@@ -37,9 +48,24 @@ html {
 }
 
 body {
+  width: 100%;
+  min-height: 100%;
   font-size: 1.8rem;
   font-family: "Josefin Sans", sans-serif;
-  background: -webkit-gradient(linear, left top, right top, from(#57ddff), to(#c058f3));
-  background: linear-gradient(to right, #57ddff, #c058f3);
+  background: url("../images/bg-desktop-light.jpg") no-repeat, var(--clr-bg);
+  background-size: contain;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 /*# sourceMappingURL=main.css.map */

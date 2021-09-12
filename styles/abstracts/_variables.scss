@@ -1,3 +1,5 @@
 $font-stack: "Josefin Sans", sans-serif;
 
+$bg-light: url("../images/bg-desktop-light.jpg") no-repeat, var(--clr-bg);
+$bg-dark: url("../images/bg-desktop-dark.jpg") no-repeat, var(--clr-bg);
 $gradient: to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%);
