@@ -1,12 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
-.test-box {
-  width: 50vw;
-  height: 50vh;
-  background: var(--clr-list-bg);
-  -webkit-box-shadow: 0 15px 25px 10px rgba(54, 54, 54, 0.137);
-          box-shadow: 0 15px 25px 10px rgba(54, 54, 54, 0.137);
-}
-
 :root {
   --clr-list-bg: white;
   --clr-bg: hsl(0, 0%, 98%);
@@ -29,6 +21,14 @@
   --clr-box-shadow: hsl(235, 21%, 11%);
   --clr-Dark-grayish-blue: hsl(234, 11%, 52%);
   --unknown: hsl(237, 14%, 26%);
+}
+
+.test-box {
+  width: 50vw;
+  height: 50vh;
+  background: var(--clr-list-bg);
+  -webkit-box-shadow: 0 15px 25px 10px rgba(54, 54, 54, 0.137);
+          box-shadow: 0 15px 25px 10px rgba(54, 54, 54, 0.137);
 }
 
 html {

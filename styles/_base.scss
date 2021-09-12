@@ -1,30 +1,3 @@
-:root {
-    --clr-list-bg: white;
-    --clr-bg: hsl(0, 0%, 98%);
-    --clr-text: hsl(235, 19%, 35%);
-    --clr-text-completed: hsl(233, 11%, 84%);
-    --clr-text-secondary: hsl(236, 9%, 61%);
-    --clr-text-secondary-hover: hsl(235, 19%, 35%);
-    //
-    --clr-bright-blue: hsl(220, 98%, 61%);
-}
-
-.dark-mode {
-    background: $bg-dark;
-    background-size: contain;
-    //
-    --clr-list-bg: hsl(235, 24%, 19%);
-    --clr-bg: hsl(235, 21%, 11%);
-    --clr-text: hsl(234, 39%, 85%);
-    --clr-text-completed: hsl(233, 14%, 35%);
-    --clr-text-secondary: hsl(233, 14%, 35%);
-    --clr-text-secondary-hover: hsl(236, 33%, 92%);
-    //
-    --clr-box-shadow: hsl(235, 21%, 11%);
-    --clr-Dark-grayish-blue: hsl(234, 11%, 52%);
-    --unknown: hsl(237, 14%, 26%);
-}
-
 html {
     box-sizing: border-box;
     height: 100%;
