@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+:root {
+  --clr-list-bg: hsl(0, 0%, 98%);
+  --clr-bg: hsl(236, 33%, 92%);
+  --clr-text: hsl(235, 19%, 35%);
+  --clr-text-completed: hsl(233, 11%, 84%);
+  --clr-text-secondary: hsl(236, 9%, 61%);
+  --clr-text-secondary-hover: hsl(235, 19%, 35%);
+  --clr-bright-blue: hsl(220, 98%, 61%);
+}
+
+.dark-mode {
+  --clr-list-bg: hsl(237, 14%, 26%);
+  --clr-bg: hsl(235, 24%, 19%);
+  --clr-text: hsl(234, 39%, 85%);
+  --clr-text-completed: hsl(233, 14%, 35%);
+  --clr-text-secondary: hsl(233, 14%, 35%);
+  --clr-text-secondary-hover: hsl(236, 33%, 92%);
+  --clr-box-shadow: hsl(235, 21%, 11%);
+  --clr-Dark-grayish-blue: hsl(234, 11%, 52%);
+}
+
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 100%;
+  font-size: 62.5%;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 1.8rem;
+  font-family: "Josefin Sans", sans-serif;
+  background: -webkit-gradient(linear, left top, right top, from(#57ddff), to(#c058f3));
+  background: linear-gradient(to right, #57ddff, #c058f3);
+}
+/*# sourceMappingURL=main.css.map */
