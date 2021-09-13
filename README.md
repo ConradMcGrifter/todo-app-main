@@ -53,3 +53,4 @@ const proudOfThisFunc = () => {
 ### Useful resources
 
 -   [how to made gradient borders](https://codyhouse.co/nuggets/css-gradient-borders)
+-   [how to make a line go through multiple lines of text](https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration-line)

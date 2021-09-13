@@ -46,6 +46,8 @@ const createTodo = () => {
 TODO_INPUT.addEventListener("keyup", (event) => {
     if (event.key === "Enter") {
         event.preventDefault();
+
+        TODO_LIST.classList.add("active");
         createTodo();
     }
 });

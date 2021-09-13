@@ -11,7 +11,7 @@
     }
 
     &:hover .close {
-        display: flex;
+        visibility: visible;
     }
 
     > .checkbox {
@@ -40,14 +40,18 @@
     > .todoText {
         margin-left: 2rem;
         color: var(--clr-text);
+        display: inline;
+        margin-right: 2rem;
 
         &.completed {
             color: var(--clr-text-completed);
+            text-decoration-line: line-through;
         }
     }
 
     > .close {
-        width: 2.5rem;
+        width: 100%;
+        max-width: 2.5rem;
         height: 2.5rem;
         margin-left: auto;
         @include flexCenter();
@@ -55,7 +59,7 @@
         background: url("../images/icon-cross.svg") no-repeat center;
 
         @include desktopSize {
-            display: none;
+            visibility: hidden;
         }
     }
 }

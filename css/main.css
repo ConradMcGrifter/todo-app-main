@@ -151,9 +151,7 @@ body {
 }
 
 .todo-item:hover .close {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  visibility: visible;
 }
 
 .todo-item > .checkbox {
@@ -182,14 +180,19 @@ body {
 .todo-item > .todoText {
   margin-left: 2rem;
   color: var(--clr-text);
+  display: inline;
+  margin-right: 2rem;
 }
 
 .todo-item > .todoText.completed {
   color: var(--clr-text-completed);
+  -webkit-text-decoration-line: line-through;
+          text-decoration-line: line-through;
 }
 
 .todo-item > .close {
-  width: 2.5rem;
+  width: 100%;
+  max-width: 2.5rem;
   height: 2.5rem;
   margin-left: auto;
   display: -webkit-box;
@@ -211,7 +214,7 @@ body {
 
 @media only screen and (min-width: 850px) {
   .todo-item > .close {
-    display: none;
+    visibility: hidden;
   }
 }
 
@@ -282,5 +285,20 @@ body {
   margin-top: 2rem;
   -webkit-box-shadow: 0 5px 15px 10px rgba(32, 32, 32, 0.062);
           box-shadow: 0 5px 15px 10px rgba(32, 32, 32, 0.062);
+  display: none;
+}
+
+.todo-list.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.todo-list > .todo-item {
+  width: 100%;
 }
 /*# sourceMappingURL=main.css.map */
