@@ -6,6 +6,10 @@
     max-width: $max-width;
     padding: 4rem 2rem;
 
+    @include desktopSize {
+        padding: 7rem 2rem 2rem 2rem;
+    }
+
     > .title {
         color: white;
         letter-spacing: 1rem;

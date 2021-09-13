@@ -16,7 +16,7 @@
   --clr-bg: hsl(235, 21%, 11%);
   --clr-text: hsl(234, 39%, 85%);
   --clr-text-completed: hsl(237, 14%, 26%);
-  --clr-text-secondary: hsl(233, 14%, 35%);
+  --clr-text-secondary: hsl(234, 11%, 52%);
   --clr-text-secondary-hover: hsl(236, 33%, 92%);
   --clr-box-shadow: hsl(235, 21%, 11%);
   --clr-Dark-grayish-blue: hsl(234, 11%, 52%);
@@ -99,6 +99,69 @@ body {
   }
 }
 
+.todo-input--wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: var(--clr-list-bg);
+  padding: 2rem;
+  border-radius: 0.5rem;
+}
+
+.todo-input--wrap > .checkbox {
+  cursor: pointer;
+  width: 100%;
+  max-width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 999rem;
+  background: -webkit-gradient(linear, left top, left bottom, from(var(--clr-list-bg)), to(var(--clr-list-bg))) padding-box, -webkit-gradient(linear, left top, right bottom, from(#57ddff), to(#c058f3)) border-box;
+  background: linear-gradient(var(--clr-list-bg), var(--clr-list-bg)) padding-box, linear-gradient(to bottom right, #57ddff, #c058f3) border-box;
+  border: 0.2rem solid transparent;
+  position: relative;
+}
+
+.todo-input--wrap > .checkbox.toggleCheck {
+  background: url("../images/icon-check.svg") center no-repeat, -webkit-gradient(linear, left top, right bottom, from(#57ddff), to(#c058f3)) border-box;
+  background: url("../images/icon-check.svg") center no-repeat, linear-gradient(to bottom right, #57ddff, #c058f3) border-box;
+  background-size: 1.25rem 1.25rem, 100% 100%;
+}
+
+.todo-input--wrap > .todo-input {
+  background: none;
+  border: none;
+  color: var(--clr-text);
+  width: 100%;
+  font-size: 1.8rem;
+  margin-left: 2rem;
+}
+
+.todo-input--wrap > .todo-input:focus {
+  outline: none;
+}
+
+.todo-input--wrap > .todo-input::-webkit-input-placeholder {
+  color: var(--clr-text-secondary);
+  opacity: 1;
+}
+
+.todo-input--wrap > .todo-input:-ms-input-placeholder {
+  color: var(--clr-text-secondary);
+  opacity: 1;
+}
+
+.todo-input--wrap > .todo-input::-ms-input-placeholder {
+  color: var(--clr-text-secondary);
+  opacity: 1;
+}
+
+.todo-input--wrap > .todo-input::placeholder {
+  color: var(--clr-text-secondary);
+  opacity: 1;
+}
+
 .header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -108,8 +171,14 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  max-width: 70rem;
+  max-width: 60rem;
   padding: 4rem 2rem;
+}
+
+@media only screen and (min-width: 850px) {
+  .header {
+    padding: 7rem 2rem 2rem 2rem;
+  }
 }
 
 .header > .title {
@@ -141,5 +210,11 @@ body {
 
 .header > #theme-toggle .sun.display {
   display: block;
+}
+
+.main {
+  width: 100%;
+  max-width: 60rem;
+  padding: 2rem;
 }
 /*# sourceMappingURL=main.css.map */

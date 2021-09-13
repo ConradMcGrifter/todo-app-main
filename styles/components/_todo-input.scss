@@ -1,0 +1,43 @@
+.todo-input--wrap {
+    display: flex;
+    align-items: center;
+    background-color: var(--clr-list-bg);
+    padding: 2rem;
+    border-radius: $border-radius;
+
+    > .checkbox {
+        cursor: pointer;
+        width: 100%;
+        max-width: 2.75rem;
+        height: 2.75rem;
+        border-radius: 999rem;
+        background: linear-gradient(var(--clr-list-bg), var(--clr-list-bg)) padding-box,
+            linear-gradient($gradient) border-box;
+        border: 0.2rem solid transparent;
+        position: relative;
+
+        &.toggleCheck {
+            background: url("../images/icon-check.svg") center no-repeat,
+                linear-gradient($gradient) border-box;
+            background-size: 1.25rem 1.25rem, 100% 100%;
+        }
+    }
+
+    > .todo-input {
+        background: none;
+        border: none;
+        color: var(--clr-text);
+        width: 100%;
+        font-size: 1.8rem;
+        margin-left: 2rem;
+
+        &:focus {
+            outline: none;
+        }
+
+        &::placeholder {
+            color: var(--clr-text-secondary);
+            opacity: 1;
+        }
+    }
+}
