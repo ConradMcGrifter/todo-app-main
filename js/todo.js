@@ -1,5 +1,6 @@
 const TODO_INPUT = document.querySelector(".input");
 const TODO_LIST = document.querySelector(".todo-list");
+const TODO_CONTAINER = document.querySelector(".todo--container");
 
 // const CHECK_BOXES = document.querySelectorAll(".checkbox");
 
@@ -42,7 +43,7 @@ const createTodo = () => {
         TODO_ITEM.remove();
 
         if (document.querySelectorAll(".todo-item").length == 0) {
-            TODO_LIST.classList.remove("active");
+            TODO_CONTAINER.classList.remove("active");
         }
     });
 };
@@ -51,7 +52,7 @@ TODO_INPUT.addEventListener("keyup", (event) => {
     if (event.key === "Enter") {
         event.preventDefault();
 
-        TODO_LIST.classList.add("active");
+        TODO_CONTAINER.classList.add("active");
 
         createTodo();
     }

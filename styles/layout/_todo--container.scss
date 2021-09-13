@@ -1,0 +1,26 @@
+.todo--container {
+    box-shadow: 0 5px 15px 10px rgba(32, 32, 32, 0.062);
+    display: none;
+    border-radius: $border-radius;
+
+    &.active {
+        display: block;
+    }
+}
+
+.todo-list {
+    width: 100%;
+    margin-top: 3rem;
+
+    // 🔻 this is the todo-item component styles for this container
+    > .todo-item {
+        width: 100%;
+    }
+}
+
+.todo-controls {
+    padding: 1.5rem;
+    background: var(--clr-list-bg);
+    border-top: solid 1px var(--clr-text-completed);
+    border-radius: 0 0 $border-radius $border-radius;
+}

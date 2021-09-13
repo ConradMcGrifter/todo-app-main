@@ -282,19 +282,30 @@ body {
   }
 }
 
+.todo--container {
+  -webkit-box-shadow: 0 5px 15px 10px rgba(32, 32, 32, 0.062);
+          box-shadow: 0 5px 15px 10px rgba(32, 32, 32, 0.062);
+  display: none;
+  border-radius: 0.5rem;
+}
+
+.todo--container.active {
+  display: block;
+}
+
 .todo-list {
   width: 100%;
   margin-top: 3rem;
-  display: none;
-  -webkit-box-shadow: 0 5px 15px 10px rgba(32, 32, 32, 0.062);
-          box-shadow: 0 5px 15px 10px rgba(32, 32, 32, 0.062);
-}
-
-.todo-list.active {
-  display: block;
 }
 
 .todo-list > .todo-item {
   width: 100%;
+}
+
+.todo-controls {
+  padding: 1.5rem;
+  background: var(--clr-list-bg);
+  border-top: solid 1px var(--clr-text-completed);
+  border-radius: 0 0 0.5rem 0.5rem;
 }
 /*# sourceMappingURL=main.css.map */
