@@ -4,6 +4,7 @@
     background-color: var(--clr-list-bg);
     padding: 1.5rem;
     border-radius: $border-radius;
+    box-shadow: 0 5px 15px 10px rgba(32, 32, 32, 0.062);
 
     > .circle {
         width: 100%;

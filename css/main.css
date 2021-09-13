@@ -89,6 +89,8 @@ body {
   background-color: var(--clr-list-bg);
   padding: 1.5rem;
   border-radius: 0.5rem;
+  -webkit-box-shadow: 0 5px 15px 10px rgba(32, 32, 32, 0.062);
+          box-shadow: 0 5px 15px 10px rgba(32, 32, 32, 0.062);
 }
 
 .todo-input > .circle {
@@ -282,20 +284,14 @@ body {
 
 .todo-list {
   width: 100%;
-  margin-top: 2rem;
+  margin-top: 3rem;
+  display: none;
   -webkit-box-shadow: 0 5px 15px 10px rgba(32, 32, 32, 0.062);
           box-shadow: 0 5px 15px 10px rgba(32, 32, 32, 0.062);
-  display: none;
 }
 
 .todo-list.active {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  display: block;
 }
 
 .todo-list > .todo-item {

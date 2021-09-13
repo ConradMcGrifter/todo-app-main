@@ -40,6 +40,10 @@ const createTodo = () => {
 
     TODO_CLOSE.addEventListener("click", () => {
         TODO_ITEM.remove();
+
+        if (document.querySelectorAll(".todo-item").length == 0) {
+            TODO_LIST.classList.remove("active");
+        }
     });
 };
 
@@ -48,6 +52,7 @@ TODO_INPUT.addEventListener("keyup", (event) => {
         event.preventDefault();
 
         TODO_LIST.classList.add("active");
+
         createTodo();
     }
 });
