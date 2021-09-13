@@ -91,22 +91,13 @@ body {
   border-radius: 0.5rem;
 }
 
-.todo-input > .checkbox {
-  cursor: pointer;
+.todo-input > .circle {
   width: 100%;
   max-width: 2.75rem;
   height: 2.75rem;
   border-radius: 999rem;
-  background: -webkit-gradient(linear, left top, left bottom, from(var(--clr-list-bg)), to(var(--clr-list-bg))) padding-box, -webkit-gradient(linear, left top, right bottom, from(#57ddff), to(#c058f3)) border-box;
-  background: linear-gradient(var(--clr-list-bg), var(--clr-list-bg)) padding-box, linear-gradient(to bottom right, #57ddff, #c058f3) border-box;
-  border: 0.2rem solid transparent;
+  border: solid var(--clr-text-completed) 2px;
   position: relative;
-}
-
-.todo-input > .checkbox.toggleCheck {
-  background: url("../images/icon-check.svg") center no-repeat, -webkit-gradient(linear, left top, right bottom, from(#57ddff), to(#c058f3)) border-box;
-  background: url("../images/icon-check.svg") center no-repeat, linear-gradient(to bottom right, #57ddff, #c058f3) border-box;
-  background-size: 1.25rem 1.25rem, 100% 100%;
 }
 
 .todo-input > .input {
@@ -140,6 +131,41 @@ body {
 .todo-input > .input::placeholder {
   color: var(--clr-text-secondary);
   opacity: 1;
+}
+
+.todo-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 2rem;
+  background-color: var(--clr-list-bg);
+  border-radius: 0.5rem;
+}
+
+.todo-item > .checkbox {
+  cursor: pointer;
+  width: 100%;
+  max-width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 999rem;
+  background: -webkit-gradient(linear, left top, left bottom, from(var(--clr-list-bg)), to(var(--clr-list-bg))) padding-box, -webkit-gradient(linear, left top, right bottom, from(#57ddff), to(#c058f3)) border-box;
+  background: linear-gradient(var(--clr-list-bg), var(--clr-list-bg)) padding-box, linear-gradient(to bottom right, #57ddff, #c058f3) border-box;
+  border: 0.2rem solid transparent;
+  position: relative;
+}
+
+.todo-item > .checkbox.toggleCheck {
+  background: url("../images/icon-check.svg") center no-repeat, -webkit-gradient(linear, left top, right bottom, from(#57ddff), to(#c058f3)) border-box;
+  background: url("../images/icon-check.svg") center no-repeat, linear-gradient(to bottom right, #57ddff, #c058f3) border-box;
+  background-size: 1.25rem 1.25rem, 100% 100%;
+}
+
+.todo-item > .todoText {
+  margin-left: 2rem;
+  color: var(--clr-text);
 }
 
 .header {
@@ -196,5 +222,12 @@ body {
   width: 100%;
   max-width: 60rem;
   padding: 2rem;
+}
+
+.todo-list {
+  width: 100%;
+  margin-top: 2rem;
+  -webkit-box-shadow: 0 5px 15px 10px rgba(32, 32, 32, 0.062);
+          box-shadow: 0 5px 15px 10px rgba(32, 32, 32, 0.062);
 }
 /*# sourceMappingURL=main.css.map */

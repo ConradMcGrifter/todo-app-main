@@ -5,22 +5,13 @@
     padding: 2rem;
     border-radius: $border-radius;
 
-    > .checkbox {
-        cursor: pointer;
+    > .circle {
         width: 100%;
         max-width: 2.75rem;
         height: 2.75rem;
         border-radius: 999rem;
-        background: linear-gradient(var(--clr-list-bg), var(--clr-list-bg)) padding-box,
-            linear-gradient($gradient) border-box;
-        border: 0.2rem solid transparent;
+        border: solid var(--clr-text-completed) 2px;
         position: relative;
-
-        &.toggleCheck {
-            background: url("../images/icon-check.svg") center no-repeat,
-                linear-gradient($gradient) border-box;
-            background-size: 1.25rem 1.25rem, 100% 100%;
-        }
     }
 
     > .input {
