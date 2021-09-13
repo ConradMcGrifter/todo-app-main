@@ -15,12 +15,11 @@
   --clr-list-bg: hsl(235, 24%, 19%);
   --clr-bg: hsl(235, 21%, 11%);
   --clr-text: hsl(234, 39%, 85%);
-  --clr-text-completed: hsl(233, 14%, 35%);
+  --clr-text-completed: hsl(237, 14%, 26%);
   --clr-text-secondary: hsl(233, 14%, 35%);
   --clr-text-secondary-hover: hsl(236, 33%, 92%);
   --clr-box-shadow: hsl(235, 21%, 11%);
   --clr-Dark-grayish-blue: hsl(234, 11%, 52%);
-  --unknown: hsl(237, 14%, 26%);
 }
 
 .test-box {
@@ -29,6 +28,18 @@
   background: var(--clr-list-bg);
   -webkit-box-shadow: 0 15px 25px 10px rgba(54, 54, 54, 0.137);
           box-shadow: 0 15px 25px 10px rgba(54, 54, 54, 0.137);
+}
+
+.test-box p {
+  color: var(--clr-text);
+}
+
+.test-box .completed {
+  color: var(--clr-text-completed);
+}
+
+.test-box .secondary {
+  color: var(--clr-text-secondary);
 }
 
 html {
