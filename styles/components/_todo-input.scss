@@ -1,4 +1,4 @@
-.todo-input--wrap {
+.todo-input {
     display: flex;
     align-items: center;
     background-color: var(--clr-list-bg);
@@ -23,7 +23,7 @@
         }
     }
 
-    > .todo-input {
+    > .input {
         background: none;
         border: none;
         color: var(--clr-text);

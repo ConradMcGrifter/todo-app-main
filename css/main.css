@@ -29,26 +29,6 @@
   }
 }
 
-.test-box {
-  width: 50vw;
-  height: 50vh;
-  background: var(--clr-list-bg);
-  -webkit-box-shadow: 0 15px 25px 10px rgba(54, 54, 54, 0.137);
-          box-shadow: 0 15px 25px 10px rgba(54, 54, 54, 0.137);
-}
-
-.test-box p {
-  color: var(--clr-text);
-}
-
-.test-box .completed {
-  color: var(--clr-text-completed);
-}
-
-.test-box .secondary {
-  color: var(--clr-text-secondary);
-}
-
 html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -99,7 +79,7 @@ body {
   }
 }
 
-.todo-input--wrap {
+.todo-input {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -111,7 +91,7 @@ body {
   border-radius: 0.5rem;
 }
 
-.todo-input--wrap > .checkbox {
+.todo-input > .checkbox {
   cursor: pointer;
   width: 100%;
   max-width: 2.75rem;
@@ -123,13 +103,13 @@ body {
   position: relative;
 }
 
-.todo-input--wrap > .checkbox.toggleCheck {
+.todo-input > .checkbox.toggleCheck {
   background: url("../images/icon-check.svg") center no-repeat, -webkit-gradient(linear, left top, right bottom, from(#57ddff), to(#c058f3)) border-box;
   background: url("../images/icon-check.svg") center no-repeat, linear-gradient(to bottom right, #57ddff, #c058f3) border-box;
   background-size: 1.25rem 1.25rem, 100% 100%;
 }
 
-.todo-input--wrap > .todo-input {
+.todo-input > .input {
   background: none;
   border: none;
   color: var(--clr-text);
@@ -138,26 +118,26 @@ body {
   margin-left: 2rem;
 }
 
-.todo-input--wrap > .todo-input:focus {
+.todo-input > .input:focus {
   outline: none;
 }
 
-.todo-input--wrap > .todo-input::-webkit-input-placeholder {
+.todo-input > .input::-webkit-input-placeholder {
   color: var(--clr-text-secondary);
   opacity: 1;
 }
 
-.todo-input--wrap > .todo-input:-ms-input-placeholder {
+.todo-input > .input:-ms-input-placeholder {
   color: var(--clr-text-secondary);
   opacity: 1;
 }
 
-.todo-input--wrap > .todo-input::-ms-input-placeholder {
+.todo-input > .input::-ms-input-placeholder {
   color: var(--clr-text-secondary);
   opacity: 1;
 }
 
-.todo-input--wrap > .todo-input::placeholder {
+.todo-input > .input::placeholder {
   color: var(--clr-text-secondary);
   opacity: 1;
 }
