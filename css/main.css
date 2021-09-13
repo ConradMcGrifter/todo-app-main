@@ -10,7 +10,7 @@
 }
 
 .dark-mode {
-  background: url("../images/bg-desktop-dark.jpg") no-repeat, var(--clr-bg);
+  background: url("../images/bg-mobile-dark.jpg") no-repeat, var(--clr-bg);
   background-size: contain;
   --clr-list-bg: hsl(235, 24%, 19%);
   --clr-bg: hsl(235, 21%, 11%);
@@ -20,6 +20,13 @@
   --clr-text-secondary-hover: hsl(236, 33%, 92%);
   --clr-box-shadow: hsl(235, 21%, 11%);
   --clr-Dark-grayish-blue: hsl(234, 11%, 52%);
+}
+
+@media only screen and (min-width: 850px) {
+  .dark-mode {
+    background: url("../images/bg-desktop-dark.jpg") no-repeat, var(--clr-bg);
+    background-size: contain;
+  }
 }
 
 .test-box {
@@ -63,8 +70,10 @@ body {
   min-height: 100%;
   font-size: 1.8rem;
   font-family: "Josefin Sans", sans-serif;
-  background: url("../images/bg-desktop-light.jpg") no-repeat, var(--clr-bg);
+  background: url("../images/bg-mobile-light.jpg") no-repeat, var(--clr-bg);
   background-size: contain;
+  -webkit-transition: background 0.25s;
+  transition: background 0.25s;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -78,5 +87,59 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+@media only screen and (min-width: 850px) {
+  body {
+    background: url("../images/bg-desktop-light.jpg") no-repeat, var(--clr-bg);
+    background-size: contain;
+  }
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  max-width: 70rem;
+  padding: 4rem 2rem;
+}
+
+.header > .title {
+  color: white;
+  letter-spacing: 1rem;
+}
+
+.header > #theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.header > #theme-toggle:focus {
+  outline: none;
+}
+
+.header > #theme-toggle .moon {
+  display: block;
+}
+
+.header > #theme-toggle .moon.hide {
+  display: none;
+}
+
+.header > #theme-toggle .sun {
+  display: none;
+}
+
+.header > #theme-toggle .sun.display {
+  display: block;
 }
 /*# sourceMappingURL=main.css.map */

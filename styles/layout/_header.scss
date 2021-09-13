@@ -1,0 +1,39 @@
+.header {
+    display: flex;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    max-width: $max-width;
+    padding: 4rem 2rem;
+
+    > .title {
+        color: white;
+        letter-spacing: 1rem;
+    }
+
+    > #theme-toggle {
+        background: none;
+        border: none;
+        cursor: pointer;
+
+        &:focus {
+            outline: none;
+        }
+
+        .moon {
+            display: block;
+
+            &.hide {
+                display: none;
+            }
+        }
+
+        .sun {
+            display: none;
+
+            &.display {
+                display: block;
+            }
+        }
+    }
+}

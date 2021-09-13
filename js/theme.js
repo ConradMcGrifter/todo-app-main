@@ -1,11 +1,15 @@
-const BODY = document.body;
-const TEST_BTN = document.querySelector(".gaah");
+const THEME_TOGGLE = document.querySelector("#theme-toggle");
 
-const myTestFunc = () => {
+const toggleTheme = () => {
+    const BODY = document.body;
+    const MOON = document.querySelector(".moon");
+    const SUN = document.querySelector(".sun");
+
     BODY.classList.toggle("dark-mode");
+    SUN.classList.toggle("display");
+    MOON.classList.toggle("hide");
 };
 
-TEST_BTN.addEventListener("click", () => {
-    myTestFunc();
-    console.log("test");
+THEME_TOGGLE.addEventListener("click", () => {
+    toggleTheme();
 });

@@ -17,7 +17,14 @@ body {
     min-height: 100%;
     font-size: 1.8rem;
     font-family: $font-stack;
-    background: $bg-light;
+    background: $bg-light-mobile;
     background-size: contain;
+    transition: background 0.25s;
     @include flexCenter();
+    justify-content: flex-start;
+
+    @include desktopSize {
+        background: $bg-light-desktop;
+        background-size: contain;
+    }
 }

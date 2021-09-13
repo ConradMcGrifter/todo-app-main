@@ -1,8 +1,13 @@
 $font-stack: "Josefin Sans", sans-serif;
 
-$bg-light: url("../images/bg-desktop-light.jpg") no-repeat, var(--clr-bg);
-$bg-dark: url("../images/bg-desktop-dark.jpg") no-repeat, var(--clr-bg);
+$bg-light-mobile: url("../images/bg-mobile-light.jpg") no-repeat, var(--clr-bg);
+$bg-light-desktop: url("../images/bg-desktop-light.jpg") no-repeat, var(--clr-bg);
+
+$bg-dark-mobile: url("../images/bg-mobile-dark.jpg") no-repeat, var(--clr-bg);
+$bg-dark-desktop: url("../images/bg-desktop-dark.jpg") no-repeat, var(--clr-bg);
+
 $gradient: to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%);
+$max-width: 70rem;
 
 // 🔻🔻 css variables for theme toggle 🔻🔻
 :root {
@@ -17,7 +22,7 @@ $gradient: to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%);
 }
 
 .dark-mode {
-    background: $bg-dark;
+    background: $bg-dark-mobile;
     background-size: contain;
     //
     --clr-list-bg: hsl(235, 24%, 19%);
@@ -29,4 +34,9 @@ $gradient: to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%);
     //
     --clr-box-shadow: hsl(235, 21%, 11%);
     --clr-Dark-grayish-blue: hsl(234, 11%, 52%);
+
+    @include desktopSize {
+        background: $bg-dark-desktop;
+        background-size: contain;
+    }
 }
