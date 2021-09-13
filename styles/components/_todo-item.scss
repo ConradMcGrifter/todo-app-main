@@ -1,24 +1,38 @@
 .todo-item {
     display: flex;
     align-items: center;
-    padding: 2rem;
+    padding: 1.5rem;
     background-color: var(--clr-list-bg);
-    border-radius: $border-radius;
+    border-radius: $border-radius $border-radius 0 0;
+
+    & + .todo-item {
+        border-radius: 0;
+        border-top: solid 1px var(--clr-text-completed);
+    }
+
+    &:hover .close {
+        display: flex;
+    }
 
     > .checkbox {
         cursor: pointer;
         width: 100%;
-        max-width: 2.75rem;
-        height: 2.75rem;
+        max-width: 2.5rem;
+        height: 2.5rem;
         border-radius: 999rem;
-        background: linear-gradient(var(--clr-list-bg), var(--clr-list-bg)) padding-box,
-            linear-gradient($gradient) border-box;
-        border: 0.2rem solid transparent;
+        border: solid var(--clr-text-completed) 2px;
         position: relative;
+
+        &:hover {
+            background: linear-gradient(var(--clr-list-bg), var(--clr-list-bg)) padding-box,
+                linear-gradient($gradient) border-box;
+            border: 0.2rem solid transparent;
+        }
 
         &.toggleCheck {
             background: url("../images/icon-check.svg") center no-repeat,
                 linear-gradient($gradient) border-box;
+            border: 0.2rem solid transparent;
             background-size: 1.25rem 1.25rem, 100% 100%;
         }
     }
@@ -26,5 +40,22 @@
     > .todoText {
         margin-left: 2rem;
         color: var(--clr-text);
+
+        &.completed {
+            color: var(--clr-text-completed);
+        }
+    }
+
+    > .close {
+        width: 2.5rem;
+        height: 2.5rem;
+        margin-left: auto;
+        @include flexCenter();
+        cursor: pointer;
+        background: url("../images/icon-cross.svg") no-repeat center;
+
+        @include desktopSize {
+            display: none;
+        }
     }
 }

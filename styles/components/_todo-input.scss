@@ -2,13 +2,13 @@
     display: flex;
     align-items: center;
     background-color: var(--clr-list-bg);
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: $border-radius;
 
     > .circle {
         width: 100%;
-        max-width: 2.75rem;
-        height: 2.75rem;
+        max-width: 2.5rem;
+        height: 2.5rem;
         border-radius: 999rem;
         border: solid var(--clr-text-completed) 2px;
         position: relative;

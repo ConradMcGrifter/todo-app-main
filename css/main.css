@@ -87,14 +87,14 @@ body {
       -ms-flex-align: center;
           align-items: center;
   background-color: var(--clr-list-bg);
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: 0.5rem;
 }
 
 .todo-input > .circle {
   width: 100%;
-  max-width: 2.75rem;
-  height: 2.75rem;
+  max-width: 2.5rem;
+  height: 2.5rem;
   border-radius: 999rem;
   border: solid var(--clr-text-completed) 2px;
   position: relative;
@@ -140,32 +140,79 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 2rem;
+  padding: 1.5rem;
   background-color: var(--clr-list-bg);
-  border-radius: 0.5rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.todo-item + .todo-item {
+  border-radius: 0;
+  border-top: solid 1px var(--clr-text-completed);
+}
+
+.todo-item:hover .close {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .todo-item > .checkbox {
   cursor: pointer;
   width: 100%;
-  max-width: 2.75rem;
-  height: 2.75rem;
+  max-width: 2.5rem;
+  height: 2.5rem;
   border-radius: 999rem;
+  border: solid var(--clr-text-completed) 2px;
+  position: relative;
+}
+
+.todo-item > .checkbox:hover {
   background: -webkit-gradient(linear, left top, left bottom, from(var(--clr-list-bg)), to(var(--clr-list-bg))) padding-box, -webkit-gradient(linear, left top, right bottom, from(#57ddff), to(#c058f3)) border-box;
   background: linear-gradient(var(--clr-list-bg), var(--clr-list-bg)) padding-box, linear-gradient(to bottom right, #57ddff, #c058f3) border-box;
   border: 0.2rem solid transparent;
-  position: relative;
 }
 
 .todo-item > .checkbox.toggleCheck {
   background: url("../images/icon-check.svg") center no-repeat, -webkit-gradient(linear, left top, right bottom, from(#57ddff), to(#c058f3)) border-box;
   background: url("../images/icon-check.svg") center no-repeat, linear-gradient(to bottom right, #57ddff, #c058f3) border-box;
+  border: 0.2rem solid transparent;
   background-size: 1.25rem 1.25rem, 100% 100%;
 }
 
 .todo-item > .todoText {
   margin-left: 2rem;
   color: var(--clr-text);
+}
+
+.todo-item > .todoText.completed {
+  color: var(--clr-text-completed);
+}
+
+.todo-item > .close {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-left: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  cursor: pointer;
+  background: url("../images/icon-cross.svg") no-repeat center;
+}
+
+@media only screen and (min-width: 850px) {
+  .todo-item > .close {
+    display: none;
+  }
 }
 
 .header {
@@ -178,7 +225,7 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
   max-width: 60rem;
-  padding: 4rem 2rem;
+  padding: 4rem 2rem 2rem 2rem;
 }
 
 @media only screen and (min-width: 850px) {
@@ -221,7 +268,13 @@ body {
 .main {
   width: 100%;
   max-width: 60rem;
-  padding: 2rem;
+  padding: 0 2rem 2rem 2rem;
+}
+
+@media only screen and (min-width: 850px) {
+  .main {
+    padding: 2rem;
+  }
 }
 
 .todo-list {
