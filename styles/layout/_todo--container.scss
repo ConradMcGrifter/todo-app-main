@@ -6,21 +6,38 @@
     &.active {
         display: block;
     }
-}
 
-.todo-list {
-    width: 100%;
-    margin-top: 3rem;
-
-    // 🔻 this is the todo-item component styles for this container
-    > .todo-item {
+    > .todo-list {
         width: 100%;
-    }
-}
+        margin-top: 3rem;
 
-.todo-controls {
-    padding: 1.5rem;
-    background: var(--clr-list-bg);
-    border-top: solid 1px var(--clr-text-completed);
-    border-radius: 0 0 $border-radius $border-radius;
+        // 🔻 this is the todo-item component styles for this container
+        .todo-item {
+            width: 100%;
+        }
+    }
+
+    > .todo-controls {
+        padding: 1.5rem;
+        background: var(--clr-list-bg);
+        border-top: solid 1px var(--clr-text-completed);
+        border-radius: 0 0 $border-radius $border-radius;
+        display: flex;
+
+        .itemsLeft {
+            color: var(--clr-text-secondary);
+            font-size: 1.4rem;
+            transition: color 0.25s;
+        }
+
+        .clear {
+            @extend .itemsLeft;
+            margin-left: auto;
+            cursor: pointer;
+
+            &:hover {
+                color: var(--clr-text-secondary-hover);
+            }
+        }
+    }
 }

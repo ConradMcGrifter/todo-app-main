@@ -89,8 +89,8 @@ body {
   background-color: var(--clr-list-bg);
   padding: 1.5rem;
   border-radius: 0.5rem;
-  -webkit-box-shadow: 0 5px 15px 10px rgba(32, 32, 32, 0.062);
-          box-shadow: 0 5px 15px 10px rgba(32, 32, 32, 0.062);
+  -webkit-box-shadow: 0 5px 15px rgba(32, 32, 32, 0.26);
+          box-shadow: 0 5px 15px rgba(32, 32, 32, 0.26);
 }
 
 .todo-input > .circle {
@@ -190,6 +190,7 @@ body {
   color: var(--clr-text-completed);
   -webkit-text-decoration-line: line-through;
           text-decoration-line: line-through;
+  text-decoration-thickness: 0.2rem;
 }
 
 .todo-item > .close {
@@ -293,19 +294,38 @@ body {
   display: block;
 }
 
-.todo-list {
+.todo--container > .todo-list {
   width: 100%;
   margin-top: 3rem;
 }
 
-.todo-list > .todo-item {
+.todo--container > .todo-list .todo-item {
   width: 100%;
 }
 
-.todo-controls {
+.todo--container > .todo-controls {
   padding: 1.5rem;
   background: var(--clr-list-bg);
   border-top: solid 1px var(--clr-text-completed);
   border-radius: 0 0 0.5rem 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.todo--container > .todo-controls .itemsLeft, .todo--container > .todo-controls .clear {
+  color: var(--clr-text-secondary);
+  font-size: 1.4rem;
+  -webkit-transition: color 0.25s;
+  transition: color 0.25s;
+}
+
+.todo--container > .todo-controls .clear {
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.todo--container > .todo-controls .clear:hover {
+  color: var(--clr-text-secondary-hover);
 }
 /*# sourceMappingURL=main.css.map */

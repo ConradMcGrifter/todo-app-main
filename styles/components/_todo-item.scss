@@ -46,6 +46,7 @@
         &.completed {
             color: var(--clr-text-completed);
             text-decoration-line: line-through;
+            text-decoration-thickness: 0.2rem;
         }
     }
 
