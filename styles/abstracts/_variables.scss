@@ -2,6 +2,7 @@ $font-stack: "Josefin Sans", sans-serif;
 $gradient: to bottom right, hsl(192, 100%, 67%), hsl(280, 87%, 65%);
 $max-width: 60rem;
 $border-radius: 0.5rem;
+$box-shadow: 0 5px 15px rgba(32, 32, 32, 0.26);
 
 $bg-light-mobile: url("../images/bg-mobile-light.jpg") no-repeat, var(--clr-bg);
 $bg-light-desktop: url("../images/bg-desktop-light.jpg") no-repeat, var(--clr-bg);

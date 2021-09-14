@@ -1,5 +1,4 @@
 .todo--container {
-    box-shadow: 0 5px 15px 10px rgba(32, 32, 32, 0.062);
     display: none;
     border-radius: $border-radius;
 
@@ -7,36 +6,77 @@
         display: block;
     }
 
-    > .todo-list {
-        width: 100%;
-        margin-top: 3rem;
+    .todo--wrap {
+        box-shadow: $box-shadow;
 
-        // 🔻 this is the todo-item component styles for this container
-        .todo-item {
+        > .todo-list {
             width: 100%;
+            margin-top: 3rem;
+
+            // 🔻 this is the todo-item component styles for this container
+            .todo-item {
+                width: 100%;
+            }
+        }
+
+        > .todo-controls {
+            padding: 2rem;
+            background: var(--clr-list-bg);
+            border-top: solid 1px var(--clr-text-completed);
+            border-radius: 0 0 $border-radius $border-radius;
+            display: flex;
+
+            .itemsLeft {
+                color: var(--clr-text-secondary);
+                font-size: 1.4rem;
+                transition: color 0.25s;
+            }
+
+            .clear {
+                @extend .itemsLeft;
+                margin-left: auto;
+                cursor: pointer;
+
+                &:hover {
+                    color: var(--clr-text-secondary-hover);
+                }
+            }
         }
     }
 
-    > .todo-controls {
-        padding: 1.5rem;
+    > .todo-controls-mobile {
+        padding: 2rem;
         background: var(--clr-list-bg);
         border-top: solid 1px var(--clr-text-completed);
         border-radius: 0 0 $border-radius $border-radius;
         display: flex;
+        justify-content: center;
+        border-top: none;
+        border-radius: $border-radius;
+        margin-top: 2rem;
+        box-shadow: $box-shadow;
 
-        .itemsLeft {
-            color: var(--clr-text-secondary);
-            font-size: 1.4rem;
-            transition: color 0.25s;
+        @include desktopSize {
+            display: none;
         }
 
-        .clear {
-            @extend .itemsLeft;
-            margin-left: auto;
-            cursor: pointer;
+        .mobile-controls--wrap {
+            display: flex;
 
-            &:hover {
-                color: var(--clr-text-secondary-hover);
+            .controls-li {
+                cursor: pointer;
+                list-style: none;
+                font-size: 1.4rem;
+                font-weight: 700;
+                color: var(--clr-text-secondary);
+
+                &:hover {
+                    color: var(--clr-bright-blue);
+                }
+
+                & + .controls-li {
+                    margin-left: 2rem;
+                }
             }
         }
     }
