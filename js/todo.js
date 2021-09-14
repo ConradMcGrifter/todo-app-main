@@ -4,6 +4,21 @@ const TODO_CONTAINER = document.querySelector(".todo--container");
 
 const CLEAR_COMPLETED = document.querySelector(".clear");
 
+const tasksLeft = () => {
+    const ITEMS_LEFT_COUNTER = document.querySelector(".itemsLeft");
+
+    let itemsArray = Array.from(TODO_LIST.querySelectorAll(".todoText"));
+    let unfinishedItemsArray = [];
+
+    itemsArray.forEach((item) => {
+        if (!item.classList.contains("completed")) {
+            unfinishedItemsArray.push(item);
+        }
+    });
+
+    ITEMS_LEFT_COUNTER.innerText = `${unfinishedItemsArray.length} items left`;
+};
+
 const createTodo = () => {
     if (TODO_INPUT.value == "") {
         return;
@@ -30,9 +45,12 @@ const createTodo = () => {
 
     TODO_INPUT.value = ""; // reset input field to blank after user creates to-do item
 
+    // event listener for the circle checkbox
     CHECKBOX.addEventListener("click", () => {
         CHECKBOX.classList.toggle("toggleCheck");
         TODO_TEXT.classList.toggle("completed");
+
+        tasksLeft();
     });
 
     TODO_CLOSE.addEventListener("click", () => {
@@ -44,7 +62,11 @@ const createTodo = () => {
         if (ITEM_ARRAY.length == 0) {
             TODO_CONTAINER.classList.remove("active");
         }
+
+        tasksLeft();
     });
+
+    tasksLeft();
 };
 
 CLEAR_COMPLETED.addEventListener("click", () => {

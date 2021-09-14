@@ -1,15 +1,15 @@
 .todo--container {
     display: none;
-    border-radius: $border-radius;
 
     &.active {
         display: block;
     }
 
-    .todo--wrap {
+    > .todo--wrap {
         box-shadow: $box-shadow;
+        border-radius: $border-radius;
 
-        > .todo-list {
+        .todo-list {
             width: 100%;
             margin-top: 3rem;
 
@@ -19,7 +19,7 @@
             }
         }
 
-        > .todo-controls {
+        .todo-controls {
             padding: 2rem;
             background: var(--clr-list-bg);
             border-top: solid 1px var(--clr-text-completed);
@@ -47,7 +47,6 @@
     > .todo-controls-mobile {
         padding: 2rem;
         background: var(--clr-list-bg);
-        border-top: solid 1px var(--clr-text-completed);
         border-radius: 0 0 $border-radius $border-radius;
         display: flex;
         justify-content: center;
