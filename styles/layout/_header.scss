@@ -4,7 +4,7 @@
     display: flex;
     justify-content: space-between;
     max-width: $max-width;
-    padding: 4rem 2rem 4rem 2rem;
+    padding: 3rem 2rem 3rem 2rem;
 
     @include desktopSize {
         padding: 7rem 2rem 2rem 2rem;
