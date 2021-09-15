@@ -76,6 +76,10 @@ const filterActive = () => {
     } else {
         TODO_EMPTY.classList.remove("display");
     }
+
+    // 🔻🔻🔻🔻🔻🔻🔻🔻working on this part here🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻
+    globalActiveArr[0].style.borderRadius = ".5rem .5rem 0 0";
+    globalActiveArr[0].style.borderTop = "none";
 };
 
 const filterCompleted = () => {
@@ -103,6 +107,11 @@ const filterCompleted = () => {
     // if (globalCompletedArr.length == 0) {
     //     showAll();
     // }
+    console.log(document.querySelectorAll(".todo-item"));
+    console.log(globalActiveArr + " active");
+    console.log(globalCompletedArr + " completed");
+
+    globalCompletedArr[0].style.borderRadius = ".5rem .5rem 0 0";
 };
 
 const showAll = () => {
@@ -175,6 +184,7 @@ const createTodo = () => {
         }
 
         setGlobalArrayValues();
+
         tasksLeft();
     });
 
@@ -223,12 +233,9 @@ CLEAR_COMPLETED.addEventListener("click", () => {
         EMPTY_TEXT.innerText = "No completed tasks";
     }
 
-    console.log(globalActiveArr, globalCompletedArr);
     if (globalCompletedArr.length === 0 && globalActiveArr.length === 0) {
         TODO_CONTAINER.classList.remove("active");
     }
-
-    // showAll();
 });
 
 // 🔻 adds todo item when the enter key is pressed
