@@ -88,6 +88,11 @@ const createTodo = () => {
         return;
     }
 
+    if (!globalCompletedArr == undefined) {
+        if (globalCompletedArr[0].classList.contains("hidden")) {
+            filterActive();
+        }
+    }
     // create elements to be added to the DOM
     const TODO_ITEM = document.createElement("div");
     const CHECKBOX = document.createElement("span");
