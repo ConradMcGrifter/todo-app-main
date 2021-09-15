@@ -68,10 +68,6 @@ const filterCompleted = () => {
 
     setGlobalArrayValues();
 
-    if (globalCompletedArr.length == 0) {
-        return;
-    }
-
     globalActiveArr.forEach((item) => {
         item.classList.add("hidden");
     });
@@ -79,6 +75,10 @@ const filterCompleted = () => {
     globalCompletedArr.forEach((item) => {
         item.classList.remove("hidden");
     });
+
+    if (globalCompletedArr.length == 0) {
+        filterActive();
+    }
 
     console.log(globalCompletedArr);
 };
@@ -138,6 +138,9 @@ const createTodo = () => {
             filterActive();
         }
 
+        if (MOBILE_COMPLETED.classList.contains("selected")) {
+            filterCompleted();
+        }
         tasksLeft();
     });
 
@@ -146,7 +149,7 @@ const createTodo = () => {
         TODO_ITEM.remove();
 
         const ITEM_ARRAY = Array.from(document.querySelectorAll(".todo-item"));
-        console.log(ITEM_ARRAY.length);
+
         if (ITEM_ARRAY.length == 0) {
             TODO_CONTAINER.classList.toggle("active");
         }
