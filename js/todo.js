@@ -36,7 +36,12 @@ const filterActive = () => {
         return !e.classList.contains("completed");
     });
 
+    let completedItems = items.filter((e) => {
+        return e.classList.contains("completed");
+    });
+
     globalActiveArr = activeItems;
+    globalCompletedArr = completedItems;
 
     globalActiveArr.forEach((item) => {
         item.classList.remove("hidden");
@@ -46,7 +51,7 @@ const filterActive = () => {
         item.classList.add("hidden");
     });
 
-    console.log(globalActiveArr + " active");
+    console.log(globalActiveArr);
 };
 
 const filterCompleted = () => {
@@ -56,7 +61,12 @@ const filterCompleted = () => {
         return !e.classList.contains("completed");
     });
 
+    let completedItems = items.filter((e) => {
+        return e.classList.contains("completed");
+    });
+
     globalActiveArr = activeItems;
+    globalCompletedArr = completedItems;
 
     globalActiveArr.forEach((item) => {
         item.classList.add("hidden");
@@ -66,7 +76,7 @@ const filterCompleted = () => {
         item.classList.remove("hidden");
     });
 
-    console.log(globalCompletedArr + " completed");
+    console.log(globalCompletedArr);
 };
 
 const showAll = () => {
@@ -84,9 +94,9 @@ const createTodo = () => {
         return;
     }
 
-    if (!globalCompletedArr == undefined) {
-        if (globalCompletedArr[0].classList.contains("hidden")) {
-            filterActive();
+    if (globalActiveArr.length > 0) {
+        if (globalActiveArr[0].classList.contains("hidden")) {
+            showAll();
         }
     }
     // create elements to be added to the DOM
@@ -118,11 +128,6 @@ const createTodo = () => {
         TODO_TEXT.classList.toggle("completed");
         TODO_ITEM.classList.toggle("completed");
 
-        if (!TODO_ITEM.classList.contains("completed")) {
-            globalCompletedArr.splice(globalCompletedArr.indexOf(TODO_ITEM), 1);
-        } else {
-            globalCompletedArr.push(TODO_ITEM);
-        }
         tasksLeft();
     });
 
@@ -132,13 +137,6 @@ const createTodo = () => {
 
         const ITEM_ARRAY = Array.from(document.querySelectorAll(".todo-item"));
 
-        //if there are no items left, remove the active class and hide the todo container
-        if (ITEM_ARRAY.length == 0) {
-            TODO_CONTAINER.classList.remove("active");
-        }
-
-        globalItemsArr.splice(globalItemsArr.indexOf(TODO_ITEM), 1);
-        // console.log(globalItemsArr);
         tasksLeft();
     });
 
