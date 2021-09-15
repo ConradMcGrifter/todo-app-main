@@ -135,7 +135,7 @@ body {
   opacity: 1;
 }
 
-.todo-item {
+.todo-item, .todo-empty {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -147,30 +147,30 @@ body {
   border-radius: 0.5rem 0.5rem 0 0;
 }
 
-.todo-item + .todo-item {
+.todo-item + .todo-item, .todo-empty + .todo-item, .todo-item + .todo-empty, .todo-empty + .todo-empty {
   border-radius: 0;
   border-top: solid 1px var(--clr-text-completed);
 }
 
-.todo-item:hover .close {
+.todo-item:hover .close, .todo-empty:hover .close {
   visibility: visible;
 }
 
-.todo-item.display {
+.todo-item.display, .display.todo-empty {
   display: none;
 }
 
-.todo-item.completed {
+.todo-item.completed, .completed.todo-empty {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.todo-item.hidden {
+.todo-item.hidden, .hidden.todo-empty {
   display: none;
 }
 
-.todo-item > .checkbox {
+.todo-item > .checkbox, .todo-empty > .checkbox {
   cursor: pointer;
   width: 100%;
   max-width: 2.5rem;
@@ -180,34 +180,34 @@ body {
   position: relative;
 }
 
-.todo-item > .checkbox:hover {
+.todo-item > .checkbox:hover, .todo-empty > .checkbox:hover {
   background: -webkit-gradient(linear, left top, left bottom, from(var(--clr-list-bg)), to(var(--clr-list-bg))) padding-box, -webkit-gradient(linear, left top, right bottom, from(#57ddff), to(#c058f3)) border-box;
   background: linear-gradient(var(--clr-list-bg), var(--clr-list-bg)) padding-box, linear-gradient(to bottom right, #57ddff, #c058f3) border-box;
   border: 0.2rem solid transparent;
 }
 
-.todo-item > .checkbox.toggleCheck {
+.todo-item > .checkbox.toggleCheck, .todo-empty > .checkbox.toggleCheck {
   background: url("../images/icon-check.svg") center no-repeat, -webkit-gradient(linear, left top, right bottom, from(#57ddff), to(#c058f3)) border-box;
   background: url("../images/icon-check.svg") center no-repeat, linear-gradient(to bottom right, #57ddff, #c058f3) border-box;
   border: 0.2rem solid transparent;
   background-size: 1.25rem 1.25rem, 100% 100%;
 }
 
-.todo-item > .todoText {
+.todo-item > .todoText, .todo-empty > .todoText {
   margin-left: 2rem;
   color: var(--clr-text);
   display: inline;
   margin-right: 2rem;
 }
 
-.todo-item > .todoText.completed {
+.todo-item > .todoText.completed, .todo-empty > .todoText.completed {
   color: var(--clr-text-completed);
   -webkit-text-decoration-line: line-through;
           text-decoration-line: line-through;
   text-decoration-thickness: 0.2rem;
 }
 
-.todo-item > .close {
+.todo-item > .close, .todo-empty > .close {
   width: 100%;
   max-width: 2.5rem;
   height: 2.5rem;
@@ -230,9 +230,25 @@ body {
 }
 
 @media only screen and (min-width: 850px) {
-  .todo-item > .close {
+  .todo-item > .close, .todo-empty > .close {
     visibility: hidden;
   }
+}
+
+.todo-empty {
+  display: none;
+}
+
+.todo-empty.display {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.todo-empty .empty-text {
+  color: var(--clr-text-completed);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .header {
@@ -316,7 +332,7 @@ body {
   margin-top: 3rem;
 }
 
-.todo--wrap .todo-list .todo-item {
+.todo--wrap .todo-list .todo-item, .todo--wrap .todo-list .todo-empty {
   width: 100%;
 }
 
@@ -383,7 +399,7 @@ body {
 }
 
 .todo-controls-mobile .mobile-controls--wrap .controls-li + .controls-li {
-  margin-left: 2rem;
+  margin-left: 2.5rem;
 }
 
 .todo-controls-mobile .mobile-controls--wrap .controls-li .all,

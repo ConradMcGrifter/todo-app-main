@@ -1,0 +1,14 @@
+.todo-empty {
+    @extend .todo-item;
+    display: none;
+
+    &.display {
+        display: flex;
+    }
+
+    .empty-text {
+        color: var(--clr-text-completed);
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

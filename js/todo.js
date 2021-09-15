@@ -8,11 +8,16 @@ const MOBILE_ALL = document.querySelector(".all");
 
 const CLEAR_COMPLETED = document.querySelector(".clear");
 
+const TODO_EMPTY = document.querySelector(".todo-empty");
+const EMPTY_TEXT = document.querySelector(".empty-text");
+
 let globalCompletedArr = [];
 let globalActiveArr = [];
 
+// ------ ⚙ ⚙ ⚙ ⚙ ⚙ 🔻 FUNCTIONS 🔻 ⚙ ⚙ ⚙ ⚙ ⚙ ------
+
 const tasksLeft = () => {
-    const ITEMS_LEFT_COUNTER = document.querySelector(".itemsLeft");
+    const ITEMS_LEFT_COUNTER = document.querySelector(".itemsLeft"); // element that will display the number of tasks left to complete
 
     let itemsArray = Array.from(TODO_LIST.querySelectorAll(".todoText")); //grab all the items currently in the Todo List
     let unfinishedItemsArray = [];
@@ -29,16 +34,19 @@ const tasksLeft = () => {
 };
 
 const setGlobalArrayValues = () => {
-    let items = Array.from(document.querySelectorAll(".todo-item"));
+    let items = Array.from(document.querySelectorAll(".todo-item")); // grab all the items currently in the todo list
 
+    //filter all the items that dont have the "completed" class
     let activeItems = items.filter((e) => {
         return !e.classList.contains("completed");
     });
 
+    //filter all the items that have the "completed" class
     let completedItems = items.filter((e) => {
         return e.classList.contains("completed");
     });
 
+    //update the global array values
     globalActiveArr = activeItems;
     globalCompletedArr = completedItems;
 };
@@ -50,15 +58,20 @@ const filterActive = () => {
 
     setGlobalArrayValues();
 
+    if (MOBILE_ACTIVE.classList.contains("selected")) {
+        TODO_EMPTY.classList.remove("display");
+        // EMPTY_TEXT.innerText = "No completed tasks";
+    }
+
+    //remove the "hidden" class from each item in the globalActiveArr
     globalActiveArr.forEach((item) => {
         item.classList.remove("hidden");
     });
 
+    // add the hidden class to each item in the globalCompletedArr
     globalCompletedArr.forEach((item) => {
         item.classList.add("hidden");
     });
-
-    console.log(globalActiveArr);
 };
 
 const filterCompleted = () => {
@@ -76,11 +89,14 @@ const filterCompleted = () => {
         item.classList.remove("hidden");
     });
 
-    if (globalCompletedArr.length == 0) {
-        showAll();
+    if (MOBILE_COMPLETED.classList.contains("selected") && globalCompletedArr.length === 0) {
+        TODO_EMPTY.classList.add("display");
+        EMPTY_TEXT.innerText = "No completed tasks";
     }
 
-    console.log(globalCompletedArr);
+    // if (globalCompletedArr.length == 0) {
+    //     showAll();
+    // }
 };
 
 const showAll = () => {
@@ -141,6 +157,8 @@ const createTodo = () => {
         if (MOBILE_COMPLETED.classList.contains("selected")) {
             filterCompleted();
         }
+
+        setGlobalArrayValues();
         tasksLeft();
     });
 
@@ -163,21 +181,23 @@ const createTodo = () => {
 
 // 🔻 Clears all finished tasks when the "clear completed" element is clicked
 CLEAR_COMPLETED.addEventListener("click", () => {
-    const TEXT_ARRAY = Array.from(document.querySelectorAll(".todoText"));
-
-    TEXT_ARRAY.forEach((item) => {
-        if (item.classList.contains("completed")) {
-            item.parentElement.remove();
-        }
+    globalCompletedArr.forEach((item) => {
+        item.remove();
     });
 
-    const ITEM_ARRAY = Array.from(document.querySelectorAll(".todo-item"));
+    setGlobalArrayValues();
 
-    if (ITEM_ARRAY.length == 0) {
+    if (MOBILE_COMPLETED.classList.contains("selected")) {
+        TODO_EMPTY.classList.add("display");
+        EMPTY_TEXT.innerText = "No completed tasks";
+    }
+
+    console.log(globalActiveArr, globalCompletedArr);
+    if (globalCompletedArr.length === 0 && globalActiveArr.length === 0) {
         TODO_CONTAINER.classList.remove("active");
     }
 
-    showAll();
+    // showAll();
 });
 
 // 🔻 adds todo item when the enter key is pressed
