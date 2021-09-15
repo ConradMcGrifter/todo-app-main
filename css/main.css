@@ -236,6 +236,7 @@ body {
 }
 
 .todo-empty {
+  padding: 2rem;
   display: none;
 }
 
@@ -327,16 +328,16 @@ body {
   border-radius: 0.5rem;
 }
 
-.todo--wrap .todo-list {
+.todo--wrap > .todo-list {
   width: 100%;
   margin-top: 3rem;
 }
 
-.todo--wrap .todo-list .todo-item, .todo--wrap .todo-list .todo-empty {
+.todo--wrap > .todo-list .todo-item, .todo--wrap > .todo-list .todo-empty {
   width: 100%;
 }
 
-.todo--wrap .todo-controls {
+.todo--wrap > .todo-controls {
   padding: 2rem;
   background: var(--clr-list-bg);
   border-top: solid 1px var(--clr-text-completed);
@@ -344,25 +345,39 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  position: relative;
 }
 
-.todo--wrap .todo-controls .itemsLeft, .todo--wrap .todo-controls .clear {
+@media only screen and (min-width: 850px) {
+  .todo--wrap > .todo-controls {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+.todo--wrap > .todo-controls .itemsLeft, .todo--wrap > .todo-controls .clear {
   color: var(--clr-text-secondary);
   font-size: 1.4rem;
   -webkit-transition: color 0.25s;
   transition: color 0.25s;
+  width: 100%;
 }
 
-.todo--wrap .todo-controls .clear {
-  margin-left: auto;
+.todo--wrap > .todo-controls .clear {
+  text-align: end;
   cursor: pointer;
+  width: 100%;
 }
 
-.todo--wrap .todo-controls .clear:hover {
+.todo--wrap > .todo-controls .clear:hover {
   color: var(--clr-text-secondary-hover);
 }
 
-.todo-controls-mobile {
+.todo--wrap > .todo-controls .todo-controls-mobile {
   padding: 2rem;
   background: var(--clr-list-bg);
   border-radius: 0 0 0.5rem 0.5rem;
@@ -377,46 +392,57 @@ body {
   margin-top: 2rem;
   -webkit-box-shadow: 0 5px 15px rgba(32, 32, 32, 0.26);
           box-shadow: 0 5px 15px rgba(32, 32, 32, 0.26);
+  position: absolute;
+  width: 100%;
+  top: 5rem;
+  left: 0rem;
 }
 
 @media only screen and (min-width: 850px) {
-  .todo-controls-mobile {
-    display: none;
+  .todo--wrap > .todo-controls .todo-controls-mobile {
+    position: unset;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    -webkit-box-shadow: unset;
+            box-shadow: unset;
+    padding: 0;
+    margin: 0;
   }
 }
 
-.todo-controls-mobile .mobile-controls--wrap {
+.todo--wrap > .todo-controls .todo-controls-mobile .mobile-controls--wrap {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.todo-controls-mobile .mobile-controls--wrap .controls-li {
+.todo--wrap > .todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li {
   cursor: pointer;
   list-style: none;
   font-size: 1.4rem;
   font-weight: 700;
 }
 
-.todo-controls-mobile .mobile-controls--wrap .controls-li + .controls-li {
+.todo--wrap > .todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li + .controls-li {
   margin-left: 2.5rem;
 }
 
-.todo-controls-mobile .mobile-controls--wrap .controls-li .all,
-.todo-controls-mobile .mobile-controls--wrap .controls-li .active,
-.todo-controls-mobile .mobile-controls--wrap .controls-li .completed {
+.todo--wrap > .todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li .all,
+.todo--wrap > .todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li .active,
+.todo--wrap > .todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li .completed {
   color: var(--clr-text-secondary);
 }
 
-.todo-controls-mobile .mobile-controls--wrap .controls-li .all:hover,
-.todo-controls-mobile .mobile-controls--wrap .controls-li .active:hover,
-.todo-controls-mobile .mobile-controls--wrap .controls-li .completed:hover {
+.todo--wrap > .todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li .all:hover,
+.todo--wrap > .todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li .active:hover,
+.todo--wrap > .todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li .completed:hover {
   color: var(--clr-bright-blue);
 }
 
-.todo-controls-mobile .mobile-controls--wrap .controls-li .all.selected,
-.todo-controls-mobile .mobile-controls--wrap .controls-li .active.selected,
-.todo-controls-mobile .mobile-controls--wrap .controls-li .completed.selected {
+.todo--wrap > .todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li .all.selected,
+.todo--wrap > .todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li .active.selected,
+.todo--wrap > .todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li .completed.selected {
   color: var(--clr-bright-blue);
 }
 /*# sourceMappingURL=main.css.map */
