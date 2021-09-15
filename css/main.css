@@ -380,14 +380,27 @@ body {
   list-style: none;
   font-size: 1.4rem;
   font-weight: 700;
-  color: var(--clr-text-secondary);
-}
-
-.todo-controls-mobile .mobile-controls--wrap .controls-li:hover {
-  color: var(--clr-bright-blue);
 }
 
 .todo-controls-mobile .mobile-controls--wrap .controls-li + .controls-li {
   margin-left: 2rem;
+}
+
+.todo-controls-mobile .mobile-controls--wrap .controls-li .all,
+.todo-controls-mobile .mobile-controls--wrap .controls-li .active,
+.todo-controls-mobile .mobile-controls--wrap .controls-li .completed {
+  color: var(--clr-text-secondary);
+}
+
+.todo-controls-mobile .mobile-controls--wrap .controls-li .all:hover,
+.todo-controls-mobile .mobile-controls--wrap .controls-li .active:hover,
+.todo-controls-mobile .mobile-controls--wrap .controls-li .completed:hover {
+  color: var(--clr-bright-blue);
+}
+
+.todo-controls-mobile .mobile-controls--wrap .controls-li .all.selected,
+.todo-controls-mobile .mobile-controls--wrap .controls-li .active.selected,
+.todo-controls-mobile .mobile-controls--wrap .controls-li .completed.selected {
+  color: var(--clr-bright-blue);
 }
 /*# sourceMappingURL=main.css.map */

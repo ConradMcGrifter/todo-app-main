@@ -29,7 +29,7 @@ const tasksLeft = () => {
     ITEMS_LEFT_COUNTER.innerText = `${unfinishedItemsArray.length} items left`;
 };
 
-const filterActive = () => {
+const setGlobalArrayValues = () => {
     let items = Array.from(document.querySelectorAll(".todo-item"));
 
     let activeItems = items.filter((e) => {
@@ -42,6 +42,14 @@ const filterActive = () => {
 
     globalActiveArr = activeItems;
     globalCompletedArr = completedItems;
+};
+
+const filterActive = () => {
+    MOBILE_ACTIVE.classList.add("selected");
+    MOBILE_COMPLETED.classList.remove("selected");
+    MOBILE_ALL.classList.remove("selected");
+
+    setGlobalArrayValues();
 
     globalActiveArr.forEach((item) => {
         item.classList.remove("hidden");
@@ -55,18 +63,11 @@ const filterActive = () => {
 };
 
 const filterCompleted = () => {
-    let items = Array.from(document.querySelectorAll(".todo-item"));
+    MOBILE_ACTIVE.classList.remove("selected");
+    MOBILE_COMPLETED.classList.add("selected");
+    MOBILE_ALL.classList.remove("selected");
 
-    let activeItems = items.filter((e) => {
-        return !e.classList.contains("completed");
-    });
-
-    let completedItems = items.filter((e) => {
-        return e.classList.contains("completed");
-    });
-
-    globalActiveArr = activeItems;
-    globalCompletedArr = completedItems;
+    setGlobalArrayValues();
 
     if (globalCompletedArr.length == 0) {
         return;
@@ -84,6 +85,10 @@ const filterCompleted = () => {
 };
 
 const showAll = () => {
+    MOBILE_ACTIVE.classList.remove("selected");
+    MOBILE_COMPLETED.classList.remove("selected");
+    MOBILE_ALL.classList.add("selected");
+
     globalCompletedArr.forEach((item) => {
         item.classList.remove("hidden");
     });
@@ -132,6 +137,10 @@ const createTodo = () => {
         TODO_TEXT.classList.toggle("completed");
         TODO_ITEM.classList.toggle("completed");
 
+        if (MOBILE_ACTIVE.classList.contains("selected")) {
+            filterActive();
+        }
+
         tasksLeft();
     });
 
@@ -140,7 +149,10 @@ const createTodo = () => {
         TODO_ITEM.remove();
 
         const ITEM_ARRAY = Array.from(document.querySelectorAll(".todo-item"));
-
+        console.log(ITEM_ARRAY.length);
+        if (ITEM_ARRAY.length == 0) {
+            TODO_CONTAINER.classList.toggle("active");
+        }
         tasksLeft();
     });
 
