@@ -29,14 +29,6 @@ const tasksLeft = () => {
     ITEMS_LEFT_COUNTER.innerText = `${unfinishedItemsArray.length} items left`;
 };
 
-// const filterActive = () => {
-//     let completedArray = Array.from(TODO_LIST.querySelectorAll(".completed"));
-//     completedArr = completedArray; // set the global array
-//     completedArr.forEach((item) => {
-//         item.parentElement.classList.toggle("display");
-//     });
-// };
-
 const filterActive = () => {
     let items = Array.from(document.querySelectorAll(".todo-item"));
 
@@ -53,6 +45,8 @@ const filterActive = () => {
     globalCompletedArr.forEach((item) => {
         item.classList.add("hidden");
     });
+
+    console.log(globalActiveArr + " active");
 };
 
 const filterCompleted = () => {
@@ -71,6 +65,8 @@ const filterCompleted = () => {
     globalCompletedArr.forEach((item) => {
         item.classList.remove("hidden");
     });
+
+    console.log(globalCompletedArr + " completed");
 };
 
 const showAll = () => {
@@ -127,8 +123,6 @@ const createTodo = () => {
         } else {
             globalCompletedArr.push(TODO_ITEM);
         }
-
-        // console.log(globalCompletedArr);
         tasksLeft();
     });
 
