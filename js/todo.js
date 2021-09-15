@@ -58,11 +58,6 @@ const filterActive = () => {
 
     setGlobalArrayValues();
 
-    if (MOBILE_ACTIVE.classList.contains("selected")) {
-        TODO_EMPTY.classList.remove("display");
-        // EMPTY_TEXT.innerText = "No completed tasks";
-    }
-
     //remove the "hidden" class from each item in the globalActiveArr
     globalActiveArr.forEach((item) => {
         item.classList.remove("hidden");
@@ -72,6 +67,14 @@ const filterActive = () => {
     globalCompletedArr.forEach((item) => {
         item.classList.add("hidden");
     });
+
+    if (MOBILE_ACTIVE.classList.contains("selected") && globalActiveArr.length > 0) {
+        TODO_EMPTY.classList.remove("display");
+    } else if (globalActiveArr.length === 0) {
+        TODO_EMPTY.classList.add("display");
+    } else {
+        TODO_EMPTY.classList.remove("display");
+    }
 };
 
 const filterCompleted = () => {
@@ -92,6 +95,8 @@ const filterCompleted = () => {
     if (MOBILE_COMPLETED.classList.contains("selected") && globalCompletedArr.length === 0) {
         TODO_EMPTY.classList.add("display");
         EMPTY_TEXT.innerText = "No completed tasks";
+    } else {
+        TODO_EMPTY.classList.remove("display");
     }
 
     // if (globalCompletedArr.length == 0) {
@@ -111,6 +116,10 @@ const showAll = () => {
     globalActiveArr.forEach((item) => {
         item.classList.remove("hidden");
     });
+
+    if (MOBILE_ALL.classList.contains("selected")) {
+        TODO_EMPTY.classList.remove("display");
+    }
 };
 
 const createTodo = () => {
@@ -144,6 +153,12 @@ const createTodo = () => {
 
     TODO_INPUT.value = ""; // reset input field to blank after user creates to-do item
 
+    if (MOBILE_ACTIVE.classList.contains("selected")) {
+        TODO_EMPTY.classList.remove("display");
+    } else if (MOBILE_COMPLETED.classList.contains("selected")) {
+        showAll();
+    }
+
     // 🔔 event listener for the circle checkbox
     CHECKBOX.addEventListener("click", () => {
         CHECKBOX.classList.toggle("toggleCheck");
@@ -166,11 +181,26 @@ const createTodo = () => {
     TODO_CLOSE.addEventListener("click", () => {
         TODO_ITEM.remove();
 
+        setGlobalArrayValues();
+
+        if (
+            (MOBILE_COMPLETED.classList.contains("selected") && globalCompletedArr.length > 0) ||
+            (MOBILE_ACTIVE.classList.contains("selected") && globalActiveArr.length > 0)
+        ) {
+            TODO_EMPTY.classList.remove("display");
+        } else if (
+            (MOBILE_COMPLETED.classList.contains("selected") && globalCompletedArr.length === 0) ||
+            (MOBILE_ACTIVE.classList.contains("selected") && globalActiveArr.length === 0)
+        ) {
+            TODO_EMPTY.classList.add("display");
+        }
+
         const ITEM_ARRAY = Array.from(document.querySelectorAll(".todo-item"));
 
         if (ITEM_ARRAY.length == 0) {
             TODO_CONTAINER.classList.toggle("active");
         }
+
         tasksLeft();
     });
 
