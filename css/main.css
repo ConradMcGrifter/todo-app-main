@@ -160,6 +160,16 @@ body {
   display: none;
 }
 
+.todo-item.completed {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.todo-item.hidden {
+  display: none;
+}
+
 .todo-item > .checkbox {
   cursor: pointer;
   width: 100%;

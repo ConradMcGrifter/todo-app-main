@@ -18,6 +18,14 @@
         display: none;
     }
 
+    &.completed {
+        display: flex;
+    }
+
+    &.hidden {
+        display: none;
+    }
+
     > .checkbox {
         cursor: pointer;
         width: 100%;
