@@ -68,6 +68,10 @@ const filterCompleted = () => {
     globalActiveArr = activeItems;
     globalCompletedArr = completedItems;
 
+    if (globalCompletedArr.length == 0) {
+        return;
+    }
+
     globalActiveArr.forEach((item) => {
         item.classList.add("hidden");
     });
