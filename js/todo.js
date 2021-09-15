@@ -8,7 +8,6 @@ const MOBILE_ALL = document.querySelector(".all");
 
 const CLEAR_COMPLETED = document.querySelector(".clear");
 
-let globalItemsArr = [];
 let globalCompletedArr = [];
 let globalActiveArr = [];
 
@@ -126,8 +125,6 @@ const createTodo = () => {
     TODO_ITEM.append(TODO_TEXT);
     TODO_ITEM.append(TODO_CLOSE);
     TODO_LIST.append(TODO_ITEM);
-
-    globalItemsArr.push(TODO_ITEM);
 
     TODO_INPUT.value = ""; // reset input field to blank after user creates to-do item
 
