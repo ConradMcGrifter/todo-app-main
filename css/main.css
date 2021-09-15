@@ -156,6 +156,10 @@ body {
   visibility: visible;
 }
 
+.todo-item.display {
+  display: none;
+}
+
 .todo-item > .checkbox {
   cursor: pointer;
   width: 100%;

@@ -2,7 +2,13 @@ const TODO_INPUT = document.querySelector(".input");
 const TODO_LIST = document.querySelector(".todo-list");
 const TODO_CONTAINER = document.querySelector(".todo--container");
 
+const MOBILE_ACTIVE = document.querySelector(".active");
+const MOBILE_COMPLETED = document.querySelector(".completed");
+
 const CLEAR_COMPLETED = document.querySelector(".clear");
+
+let globalCompletedArr = [];
+let globalActiveArr = [];
 
 const tasksLeft = () => {
     const ITEMS_LEFT_COUNTER = document.querySelector(".itemsLeft");
@@ -20,6 +26,34 @@ const tasksLeft = () => {
     //set inner text of the counter element based on the length of the unfinishedItemsArray
     ITEMS_LEFT_COUNTER.innerText = `${unfinishedItemsArray.length} items left`;
 };
+
+// const filterActive = () => {
+//     let completedArray = Array.from(TODO_LIST.querySelectorAll(".completed"));
+//     completedArr = completedArray; // set the global array
+//     completedArr.forEach((item) => {
+//         item.parentElement.classList.toggle("display");
+//     });
+// };
+
+const filterActive = () => {
+    console.log(globalActiveArr);
+};
+
+const filterCompleted = () => {};
+
+// const filterCompleted = () => {
+//     let todoArray = Array.from(TODO_LIST.querySelectorAll(".todoText"));
+
+//     let unfinishedItemsArray = todoArray.filter((ele) => {
+//         return !ele.classList.contains("completed");
+//     });
+
+//     activeArr = unfinishedItemsArray; // set global array
+
+//     activeArr.forEach((ele) => {
+//         ele.parentElement.classList.toggle("display");
+//     });
+// };
 
 const createTodo = () => {
     if (TODO_INPUT.value == "") {
@@ -45,6 +79,8 @@ const createTodo = () => {
     TODO_ITEM.append(TODO_CLOSE);
     TODO_LIST.append(TODO_ITEM);
 
+    globalActiveArr.push(TODO_ITEM);
+
     TODO_INPUT.value = ""; // reset input field to blank after user creates to-do item
 
     // 🔔 event listener for the circle checkbox
@@ -52,6 +88,13 @@ const createTodo = () => {
         CHECKBOX.classList.toggle("toggleCheck");
         TODO_TEXT.classList.toggle("completed");
 
+        if (!TODO_TEXT.classList.contains("completed")) {
+            globalCompletedArr.splice(globalCompletedArr.indexOf(TODO_ITEM), 1);
+        } else {
+            globalCompletedArr.push(TODO_ITEM);
+        }
+
+        // console.log(globalCompletedArr);
         tasksLeft();
     });
 
@@ -66,13 +109,15 @@ const createTodo = () => {
             TODO_CONTAINER.classList.remove("active");
         }
 
+        globalActiveArr.splice(globalActiveArr.indexOf(TODO_ITEM), 1);
+        // console.log(globalActiveArr);
         tasksLeft();
     });
 
     tasksLeft();
 }; // createTodo() function end
 
-// -----------------------------------🔔 🔔 EVENT LISTENERS🔔 🔔-----------------------------------
+// -------------------🔔 🔔 EVENT LISTENERS🔔 🔔-------------------
 
 // 🔻 Clears all finished tasks when the "clear completed" element is clicked
 CLEAR_COMPLETED.addEventListener("click", () => {
@@ -101,3 +146,8 @@ TODO_INPUT.addEventListener("keyup", (event) => {
         createTodo();
     }
 });
+
+// 🔻 when the mobile "Active" element is clicked, run the filter function
+MOBILE_ACTIVE.addEventListener("click", filterActive);
+
+MOBILE_COMPLETED.addEventListener("click", filterCompleted);

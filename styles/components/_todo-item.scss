@@ -14,6 +14,10 @@
         visibility: visible;
     }
 
+    &.display {
+        display: none;
+    }
+
     > .checkbox {
         cursor: pointer;
         width: 100%;
@@ -24,7 +28,8 @@
         position: relative;
 
         &:hover {
-            background: linear-gradient(var(--clr-list-bg), var(--clr-list-bg)) padding-box,
+            background: linear-gradient(var(--clr-list-bg), var(--clr-list-bg))
+                    padding-box,
                 linear-gradient($gradient) border-box;
             border: 0.2rem solid transparent;
         }
