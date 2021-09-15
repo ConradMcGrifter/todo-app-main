@@ -77,7 +77,7 @@ const filterCompleted = () => {
     });
 
     if (globalCompletedArr.length == 0) {
-        filterActive();
+        showAll();
     }
 
     console.log(globalCompletedArr);
@@ -176,6 +176,8 @@ CLEAR_COMPLETED.addEventListener("click", () => {
     if (ITEM_ARRAY.length == 0) {
         TODO_CONTAINER.classList.remove("active");
     }
+
+    showAll();
 });
 
 // 🔻 adds todo item when the enter key is pressed
