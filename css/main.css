@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
 :root {
-  --clr-list-bg: white;
+  --clr-list-bg: hsl(0, 0%, 100%);
+  --clr-list-bg-secondary: hsl(0, 0%, 93%);
   --clr-bg: hsl(0, 0%, 98%);
   --clr-text: hsl(235, 19%, 35%);
   --clr-text-completed: hsl(233, 11%, 84%);
@@ -13,6 +14,7 @@
   background: url("../images/bg-mobile-dark.jpg") no-repeat, var(--clr-bg);
   background-size: contain;
   --clr-list-bg: hsl(235, 24%, 19%);
+  --clr-list-bg-secondary: hsl(237, 21%, 16%);
   --clr-bg: hsl(235, 21%, 11%);
   --clr-text: hsl(234, 39%, 85%);
   --clr-text-completed: hsl(237, 14%, 26%);
@@ -139,7 +141,7 @@ body {
           box-shadow: 0 5px 15px rgba(32, 32, 32, 0.26);
 }
 
-.todo-input > .circle {
+.todo-input .circle {
   width: 100%;
   max-width: 2.5rem;
   height: 2.5rem;
@@ -148,7 +150,7 @@ body {
   position: relative;
 }
 
-.todo-input > .input {
+.todo-input .input {
   background: none;
   border: none;
   color: var(--clr-text);
@@ -157,26 +159,26 @@ body {
   margin-left: 2rem;
 }
 
-.todo-input > .input:focus {
+.todo-input .input:focus {
   outline: none;
 }
 
-.todo-input > .input::-webkit-input-placeholder {
+.todo-input .input::-webkit-input-placeholder {
   color: var(--clr-text-secondary);
   opacity: 1;
 }
 
-.todo-input > .input:-ms-input-placeholder {
+.todo-input .input:-ms-input-placeholder {
   color: var(--clr-text-secondary);
   opacity: 1;
 }
 
-.todo-input > .input::-ms-input-placeholder {
+.todo-input .input::-ms-input-placeholder {
   color: var(--clr-text-secondary);
   opacity: 1;
 }
 
-.todo-input > .input::placeholder {
+.todo-input .input::placeholder {
   color: var(--clr-text-secondary);
   opacity: 1;
 }
@@ -479,6 +481,7 @@ body {
 .todo--container > .todo-list {
   width: 100%;
   border-radius: 0.5rem 0.5rem 0 0;
+  background: var(--clr-list-bg-secondary);
   overflow: hidden;
 }
 

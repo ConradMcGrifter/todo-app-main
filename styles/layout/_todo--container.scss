@@ -10,6 +10,7 @@
     > .todo-list {
         width: 100%;
         border-radius: $border-radius $border-radius 0 0;
+        background: var(--clr-list-bg-secondary);
         overflow: hidden;
 
         // 🔻 this is the todo-item component styles for this container

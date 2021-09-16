@@ -6,7 +6,7 @@
     border-radius: $border-radius;
     box-shadow: $box-shadow;
 
-    > .circle {
+    .circle {
         width: 100%;
         max-width: 2.5rem;
         height: 2.5rem;
@@ -15,7 +15,7 @@
         position: relative;
     }
 
-    > .input {
+    .input {
         background: none;
         border: none;
         color: var(--clr-text);

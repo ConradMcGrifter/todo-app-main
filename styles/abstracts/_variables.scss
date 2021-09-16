@@ -12,7 +12,8 @@ $bg-dark-desktop: url("../images/bg-desktop-dark.jpg") no-repeat, var(--clr-bg);
 
 // 🔻🔻 -- CSS variables for theme toggle -- 🔻🔻
 :root {
-    --clr-list-bg: white;
+    --clr-list-bg: hsl(0, 0%, 100%);
+    --clr-list-bg-secondary: hsl(0, 0%, 93%);
     --clr-bg: hsl(0, 0%, 98%);
     --clr-text: hsl(235, 19%, 35%);
     --clr-text-completed: hsl(233, 11%, 84%);
@@ -27,6 +28,8 @@ $bg-dark-desktop: url("../images/bg-desktop-dark.jpg") no-repeat, var(--clr-bg);
     background-size: contain;
     //
     --clr-list-bg: hsl(235, 24%, 19%);
+    --clr-list-bg-secondary: hsl(237, 21%, 16%);
+
     --clr-bg: hsl(235, 21%, 11%);
     --clr-text: hsl(234, 39%, 85%);
     --clr-text-completed: hsl(237, 14%, 26%);
