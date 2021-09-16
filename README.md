@@ -1,6 +1,6 @@
 ### Screenshot
 
-![](./screenshot.jpg)
+![](./finalScreenshot.png)
 
 ## The challenge
 
@@ -29,28 +29,17 @@ Your users should be able to:
 
 ### Built with
 
--   Semantic HTML5 markup
 -   Mobile-first workflow
+-   scss
+-   [sortable javaScript library](https://cdnjs.com/libraries/Sortable)
 
 ### What I learned
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-
-```css
-.proud-of-this-css {
-    color: papayawhip;
-}
-```
-
-```js
-const proudOfThisFunc = () => {
-    console.log("🎉");
-};
-```
+I learned a lot about appending and removing elements with javaScript
+I also used filter() method in a project for the first time
 
 ### Useful resources
 
 -   [how to made gradient borders](https://codyhouse.co/nuggets/css-gradient-borders)
 -   [how to make a line go through multiple lines of text](https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration-line)
+-   [sortable HTML using cdnjs.com](https://www.youtube.com/watch?v=z54suepKiIU)

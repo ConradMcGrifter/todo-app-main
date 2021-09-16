@@ -1,5 +1,5 @@
 const TODO_INPUT = document.querySelector(".input");
-const TODO_LIST = document.querySelector(".todo-list");
+export const TODO_LIST = document.querySelector(".todo-list");
 const TODO_CONTAINER = document.querySelector(".todo--container");
 
 const FILTER_ACTIVE = document.querySelector(".active");

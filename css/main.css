@@ -189,6 +189,8 @@ body {
   padding: 1.5rem;
   background-color: var(--clr-list-bg);
   border-bottom: solid 1px var(--clr-text-completed);
+  cursor: -webkit-grab;
+  cursor: grab;
 }
 
 .todo-item + .todo-item, .todo-empty + .todo-item, .todo-item + .todo-empty, .todo-empty + .todo-empty {
@@ -315,7 +317,7 @@ body {
 
 .todo-controls .itemsLeft, .todo-controls .clear {
   color: var(--clr-text-secondary);
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   -webkit-transition: color 0.25s;
   transition: color 0.25s;
   width: 100%;
@@ -368,7 +370,7 @@ body {
 .todo-controls > .filter-controls--wrap .filter-li {
   cursor: pointer;
   list-style: none;
-  font-size: 1.4rem;
+  font-size: 1.7rem;
   font-weight: 700;
   color: var(--clr-text-secondary);
   -webkit-transition: color 0.25s;
@@ -396,7 +398,7 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  max-width: 60rem;
+  max-width: 65rem;
   padding: 3rem 2rem 3rem 2rem;
 }
 
@@ -439,7 +441,7 @@ body {
 
 .main {
   width: 100%;
-  max-width: 60rem;
+  max-width: 65rem;
   padding: 0 2rem 2rem 2rem;
   margin-bottom: 7rem;
 }
@@ -452,13 +454,20 @@ body {
 
 .todo--container {
   display: none;
+  margin-top: 3rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-shadow: 0 5px 15px rgba(32, 32, 32, 0.26);
           box-shadow: 0 5px 15px rgba(32, 32, 32, 0.26);
-  margin-top: 3rem;
+  position: relative;
 }
 
 .todo--container.active {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .todo--container > .todo-list {
@@ -470,5 +479,19 @@ body {
 
 .todo--container > .todo-list .todo-item, .todo--container > .todo-list .todo-empty {
   width: 100%;
+}
+
+.todo--container .instructions {
+  width: 100%;
+  position: absolute;
+  bottom: -14rem;
+  text-align: center;
+  color: var(--clr-text-secondary);
+}
+
+@media only screen and (min-width: 850px) {
+  .todo--container .instructions {
+    bottom: -7rem;
+  }
 }
 /*# sourceMappingURL=main.css.map */

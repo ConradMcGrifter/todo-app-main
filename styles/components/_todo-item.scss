@@ -4,6 +4,7 @@
     padding: 1.5rem;
     background-color: var(--clr-list-bg);
     border-bottom: solid 1px var(--clr-text-completed);
+    cursor: grab;
 
     & + .todo-item {
         border-radius: 0;
