@@ -65,6 +65,7 @@
             .active,
             .completed {
                 color: var(--clr-text-secondary);
+                transition: color 0.25s;
 
                 &:hover {
                     color: var(--clr-bright-blue);

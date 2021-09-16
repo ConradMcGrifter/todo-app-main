@@ -29,6 +29,24 @@
   }
 }
 
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -70,6 +88,8 @@ body {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+  -webkit-animation: fadeIn 0.5s;
+          animation: fadeIn 0.5s;
 }
 
 @media only screen and (min-width: 850px) {
@@ -340,6 +360,8 @@ body {
 .todo-controls > .filter-controls--wrap .filter-li .active,
 .todo-controls > .filter-controls--wrap .filter-li .completed {
   color: var(--clr-text-secondary);
+  -webkit-transition: color 0.25s;
+  transition: color 0.25s;
 }
 
 .todo-controls > .filter-controls--wrap .filter-li .all:hover,
