@@ -236,7 +236,6 @@ TODO_INPUT.addEventListener("keyup", (event) => {
     }
 });
 
-// 🔻 when the mobile "Active" element is clicked, run the filter function
 MOBILE_ACTIVE.addEventListener("click", filterActive);
 
 MOBILE_COMPLETED.addEventListener("click", filterCompleted);
