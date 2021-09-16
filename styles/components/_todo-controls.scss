@@ -56,24 +56,19 @@
             list-style: none;
             font-size: 1.4rem;
             font-weight: 700;
+            color: var(--clr-text-secondary);
+            transition: color 0.25s;
+
+            &:hover {
+                color: var(--clr-bright-blue);
+            }
+
+            &.selected {
+                color: var(--clr-bright-blue);
+            }
 
             & + .filter-li {
                 margin-left: 2.5rem;
-            }
-
-            .all,
-            .active,
-            .completed {
-                color: var(--clr-text-secondary);
-                transition: color 0.25s;
-
-                &:hover {
-                    color: var(--clr-bright-blue);
-                }
-
-                &.selected {
-                    color: var(--clr-bright-blue);
-                }
             }
         }
     }

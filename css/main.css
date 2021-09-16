@@ -376,30 +376,21 @@ body {
   list-style: none;
   font-size: 1.4rem;
   font-weight: 700;
-}
-
-.todo-controls > .filter-controls--wrap .filter-li + .filter-li {
-  margin-left: 2.5rem;
-}
-
-.todo-controls > .filter-controls--wrap .filter-li .all,
-.todo-controls > .filter-controls--wrap .filter-li .active,
-.todo-controls > .filter-controls--wrap .filter-li .completed {
   color: var(--clr-text-secondary);
   -webkit-transition: color 0.25s;
   transition: color 0.25s;
 }
 
-.todo-controls > .filter-controls--wrap .filter-li .all:hover,
-.todo-controls > .filter-controls--wrap .filter-li .active:hover,
-.todo-controls > .filter-controls--wrap .filter-li .completed:hover {
+.todo-controls > .filter-controls--wrap .filter-li:hover {
   color: var(--clr-bright-blue);
 }
 
-.todo-controls > .filter-controls--wrap .filter-li .all.selected,
-.todo-controls > .filter-controls--wrap .filter-li .active.selected,
-.todo-controls > .filter-controls--wrap .filter-li .completed.selected {
+.todo-controls > .filter-controls--wrap .filter-li.selected {
   color: var(--clr-bright-blue);
+}
+
+.todo-controls > .filter-controls--wrap .filter-li + .filter-li {
+  margin-left: 2.5rem;
 }
 
 .header {
