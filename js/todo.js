@@ -74,15 +74,6 @@ const filterActive = () => {
     } else {
         TODO_EMPTY.classList.remove("display");
     }
-    // if (FILTER_ACTIVE.classList.contains("selected") && globalActiveArr.length > 0) {
-    //     TODO_EMPTY.classList.remove("display");
-    // } else if (globalActiveArr.length === 0) {
-    //     TODO_EMPTY.classList.add("display");
-    //     EMPTY_TEXT.innerText = "No active tasks";
-    // }
-    // else {
-    //     TODO_EMPTY.classList.remove("display");
-    // }
 };
 
 const filterCompleted = () => {
