@@ -20,21 +20,32 @@
         </header>
 
         <main class="main">
+            <!-- todo input -->
             <div class="todo-input">
                 <span class="circle"></span>
                 <input type="text" class="input" placeholder="Create a new todo..." />
             </div>
 
+            <!-- this container holds the todo-list and the todo-controls -->
             <div class="todo--container">
                 <ul class="todo-list">
                     <!-- todo-items get added here with javaScript -->
+
+                    <!-- 🔻🔻 Example of what the todo-item looks like 🔻🔻-->
+
+                    <!-- <div class="todo-item">
+                            <span class="checkbox"></span>
+                            <p class="todoText">Lorem ipsum dolor sit amet.</p>
+                            <span class="close"></span>
+                        </div> -->
                 </ul>
+                <!-- todo-empty gets toggled to display when there are no active items in the filtered list -->
                 <div class="todo-empty">
                     <p class="empty-text">This list is empty</p>
                 </div>
+                <!-- controls for filtering and clearing todo-items -->
                 <div class="todo-controls">
                     <span class="itemsLeft">5 items left</span>
-
                     <ul class="filter-controls--wrap">
                         <li class="filter-li">
                             <span class="all">All</span>
@@ -46,20 +57,11 @@
                             <span class="completed">Completed</span>
                         </li>
                     </ul>
-
                     <span class="clear">Clear Completed</span>
                 </div>
             </div>
         </main>
 
-        <!-- items left All Active Completed Clear Completed Drag and drop to reorder list -->
-
         <script type="module" src="js/main.js"></script>
     </body>
 </html>
-
-<!-- <div class="todo-item">
-        <span class="checkbox"></span>
-        <p class="todoText">Lorem ipsum dolor sit amet.</p>
-         <span class="close"></span>
-     </div> -->
