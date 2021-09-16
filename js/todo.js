@@ -99,13 +99,6 @@ const filterCompleted = () => {
     } else {
         TODO_EMPTY.classList.remove("display");
     }
-
-    // if (globalCompletedArr.length == 0) {
-    //     showAll();
-    // }
-    console.log(document.querySelectorAll(".todo-item"));
-    console.log(globalActiveArr + " active");
-    console.log(globalCompletedArr + " completed");
 };
 
 const showAll = () => {

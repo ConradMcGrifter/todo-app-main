@@ -237,6 +237,7 @@ body {
 .todo-empty {
   padding: 1.85rem;
   display: none;
+  border-radius: 0.5rem 0.5rem 0 0;
 }
 
 .todo-empty.display {
@@ -290,7 +291,7 @@ body {
   color: var(--clr-text-secondary-hover);
 }
 
-.todo-controls .todo-controls-mobile {
+.todo-controls > .filter-controls--wrap {
   padding: 2rem;
   background: var(--clr-list-bg);
   border-radius: 0 0 0.5rem 0.5rem;
@@ -312,7 +313,7 @@ body {
 }
 
 @media only screen and (min-width: 850px) {
-  .todo-controls .todo-controls-mobile {
+  .todo-controls > .filter-controls--wrap {
     position: unset;
     width: -webkit-max-content;
     width: -moz-max-content;
@@ -324,38 +325,32 @@ body {
   }
 }
 
-.todo-controls .todo-controls-mobile .mobile-controls--wrap {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li {
+.todo-controls > .filter-controls--wrap .filter-li {
   cursor: pointer;
   list-style: none;
   font-size: 1.4rem;
   font-weight: 700;
 }
 
-.todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li + .controls-li {
+.todo-controls > .filter-controls--wrap .filter-li + .filter-li {
   margin-left: 2.5rem;
 }
 
-.todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li .all,
-.todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li .active,
-.todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li .completed {
+.todo-controls > .filter-controls--wrap .filter-li .all,
+.todo-controls > .filter-controls--wrap .filter-li .active,
+.todo-controls > .filter-controls--wrap .filter-li .completed {
   color: var(--clr-text-secondary);
 }
 
-.todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li .all:hover,
-.todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li .active:hover,
-.todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li .completed:hover {
+.todo-controls > .filter-controls--wrap .filter-li .all:hover,
+.todo-controls > .filter-controls--wrap .filter-li .active:hover,
+.todo-controls > .filter-controls--wrap .filter-li .completed:hover {
   color: var(--clr-bright-blue);
 }
 
-.todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li .all.selected,
-.todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li .active.selected,
-.todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li .completed.selected {
+.todo-controls > .filter-controls--wrap .filter-li .all.selected,
+.todo-controls > .filter-controls--wrap .filter-li .active.selected,
+.todo-controls > .filter-controls--wrap .filter-li .completed.selected {
   color: var(--clr-bright-blue);
 }
 
@@ -434,13 +429,13 @@ body {
   -webkit-box-shadow: 0 5px 15px rgba(32, 32, 32, 0.26);
           box-shadow: 0 5px 15px rgba(32, 32, 32, 0.26);
   margin-top: 3rem;
-  background: var(--clr-list-bg);
-  border-radius: 0.5rem;
-  overflow: hidden;
 }
 
 .todo--wrap > .todo-list {
   width: 100%;
+  background: red;
+  border-radius: 0.5rem 0.5rem 0 0;
+  overflow: hidden;
 }
 
 .todo--wrap > .todo-list .todo-item, .todo--wrap > .todo-list .todo-empty {

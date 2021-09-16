@@ -26,13 +26,9 @@
         &:hover {
             color: var(--clr-text-secondary-hover);
         }
-
-        @include desktopSize {
-            // margin-left: unset;
-        }
     }
 
-    .todo-controls-mobile {
+    > .filter-controls--wrap {
         padding: 2rem;
         background: var(--clr-list-bg);
         border-radius: 0 0 $border-radius $border-radius;
@@ -55,31 +51,27 @@
             margin: 0;
         }
 
-        .mobile-controls--wrap {
-            display: flex;
+        .filter-li {
+            cursor: pointer;
+            list-style: none;
+            font-size: 1.4rem;
+            font-weight: 700;
 
-            .controls-li {
-                cursor: pointer;
-                list-style: none;
-                font-size: 1.4rem;
-                font-weight: 700;
+            & + .filter-li {
+                margin-left: 2.5rem;
+            }
 
-                & + .controls-li {
-                    margin-left: 2.5rem;
+            .all,
+            .active,
+            .completed {
+                color: var(--clr-text-secondary);
+
+                &:hover {
+                    color: var(--clr-bright-blue);
                 }
 
-                .all,
-                .active,
-                .completed {
-                    color: var(--clr-text-secondary);
-
-                    &:hover {
-                        color: var(--clr-bright-blue);
-                    }
-
-                    &.selected {
-                        color: var(--clr-bright-blue);
-                    }
+                &.selected {
+                    color: var(--clr-bright-blue);
                 }
             }
         }

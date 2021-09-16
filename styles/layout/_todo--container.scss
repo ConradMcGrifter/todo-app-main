@@ -9,12 +9,12 @@
 .todo--wrap {
     box-shadow: $box-shadow;
     margin-top: 3rem;
-    background: var(--clr-list-bg);
-    border-radius: $border-radius;
-    overflow: hidden;
 
     > .todo-list {
         width: 100%;
+        background: red;
+        border-radius: $border-radius $border-radius 0 0;
+        overflow: hidden;
 
         // 🔻 this is the todo-item component styles for this container
         .todo-item {
