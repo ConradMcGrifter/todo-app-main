@@ -68,14 +68,21 @@ const filterActive = () => {
         item.classList.add("hidden");
     });
 
-    if (FILTER_ACTIVE.classList.contains("selected") && globalActiveArr.length > 0) {
-        TODO_EMPTY.classList.remove("display");
-    } else if (globalActiveArr.length === 0) {
+    if (FILTER_ACTIVE.classList.contains("selected") && globalActiveArr.length === 0) {
         TODO_EMPTY.classList.add("display");
         EMPTY_TEXT.innerText = "No active tasks";
     } else {
         TODO_EMPTY.classList.remove("display");
     }
+    // if (FILTER_ACTIVE.classList.contains("selected") && globalActiveArr.length > 0) {
+    //     TODO_EMPTY.classList.remove("display");
+    // } else if (globalActiveArr.length === 0) {
+    //     TODO_EMPTY.classList.add("display");
+    //     EMPTY_TEXT.innerText = "No active tasks";
+    // }
+    // else {
+    //     TODO_EMPTY.classList.remove("display");
+    // }
 };
 
 const filterCompleted = () => {
@@ -124,11 +131,6 @@ const createTodo = () => {
         return;
     }
 
-    if (globalActiveArr.length > 0) {
-        if (globalActiveArr[0].classList.contains("hidden")) {
-            showAll();
-        }
-    }
     // create elements to be added to the DOM
     const TODO_ITEM = document.createElement("li");
     const CHECKBOX = document.createElement("span");
@@ -150,8 +152,11 @@ const createTodo = () => {
 
     TODO_INPUT.value = ""; // reset input field to blank after user creates to-do item
 
-    if (FILTER_ACTIVE.classList.contains("selected")) {
+    setGlobalArrayValues();
+
+    if (FILTER_ACTIVE.classList.contains("selected") && globalActiveArr.length > 0) {
         TODO_EMPTY.classList.remove("display");
+        filterActive();
     } else if (FILTER_COMPLETED.classList.contains("selected")) {
         showAll();
     }
@@ -183,18 +188,12 @@ const createTodo = () => {
             TODO_ITEM.remove();
             setGlobalArrayValues();
 
-            if (
-                (FILTER_COMPLETED.classList.contains("selected") &&
-                    globalCompletedArr.length > 0) ||
-                (FILTER_ACTIVE.classList.contains("selected") && globalActiveArr.length > 0)
-            ) {
-                TODO_EMPTY.classList.remove("display");
-            } else if (
-                (FILTER_COMPLETED.classList.contains("selected") &&
-                    globalCompletedArr.length === 0) ||
-                (FILTER_ACTIVE.classList.contains("selected") && globalActiveArr.length === 0)
-            ) {
-                TODO_EMPTY.classList.add("display");
+            if (FILTER_ACTIVE.classList.contains("selected")) {
+                filterActive();
+            }
+
+            if (FILTER_COMPLETED.classList.contains("selected")) {
+                filterCompleted();
             }
 
             const ITEM_ARRAY = Array.from(document.querySelectorAll(".todo-item"));
@@ -203,7 +202,6 @@ const createTodo = () => {
                 TODO_CONTAINER.classList.toggle("active");
             }
 
-            console.log(ITEM_ARRAY);
             tasksLeft();
         }, 350);
     });
