@@ -419,26 +419,23 @@ body {
 
 .todo--container {
   display: none;
+  -webkit-box-shadow: 0 5px 15px rgba(32, 32, 32, 0.26);
+          box-shadow: 0 5px 15px rgba(32, 32, 32, 0.26);
+  margin-top: 3rem;
 }
 
 .todo--container.active {
   display: block;
 }
 
-.todo--wrap {
-  -webkit-box-shadow: 0 5px 15px rgba(32, 32, 32, 0.26);
-          box-shadow: 0 5px 15px rgba(32, 32, 32, 0.26);
-  margin-top: 3rem;
-}
-
-.todo--wrap > .todo-list {
+.todo--container > .todo-list {
   width: 100%;
   background: red;
   border-radius: 0.5rem 0.5rem 0 0;
   overflow: hidden;
 }
 
-.todo--wrap > .todo-list .todo-item, .todo--wrap > .todo-list .todo-empty {
+.todo--container > .todo-list .todo-item, .todo--container > .todo-list .todo-empty {
   width: 100%;
 }
 /*# sourceMappingURL=main.css.map */

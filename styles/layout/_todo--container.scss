@@ -1,14 +1,11 @@
 .todo--container {
     display: none;
+    box-shadow: $box-shadow;
+    margin-top: 3rem;
 
     &.active {
         display: block;
     }
-}
-
-.todo--wrap {
-    box-shadow: $box-shadow;
-    margin-top: 3rem;
 
     > .todo-list {
         width: 100%;
