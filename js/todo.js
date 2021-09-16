@@ -177,29 +177,35 @@ const createTodo = () => {
 
     // 🔔 event listener for the "X" close button
     TODO_CLOSE.addEventListener("click", () => {
-        TODO_ITEM.remove();
+        TODO_ITEM.style.animation = "slideOut .5s ease";
 
-        setGlobalArrayValues();
+        setTimeout(function () {
+            TODO_ITEM.remove();
+            setGlobalArrayValues();
 
-        if (
-            (MOBILE_COMPLETED.classList.contains("selected") && globalCompletedArr.length > 0) ||
-            (MOBILE_ACTIVE.classList.contains("selected") && globalActiveArr.length > 0)
-        ) {
-            TODO_EMPTY.classList.remove("display");
-        } else if (
-            (MOBILE_COMPLETED.classList.contains("selected") && globalCompletedArr.length === 0) ||
-            (MOBILE_ACTIVE.classList.contains("selected") && globalActiveArr.length === 0)
-        ) {
-            TODO_EMPTY.classList.add("display");
-        }
+            if (
+                (MOBILE_COMPLETED.classList.contains("selected") &&
+                    globalCompletedArr.length > 0) ||
+                (MOBILE_ACTIVE.classList.contains("selected") && globalActiveArr.length > 0)
+            ) {
+                TODO_EMPTY.classList.remove("display");
+            } else if (
+                (MOBILE_COMPLETED.classList.contains("selected") &&
+                    globalCompletedArr.length === 0) ||
+                (MOBILE_ACTIVE.classList.contains("selected") && globalActiveArr.length === 0)
+            ) {
+                TODO_EMPTY.classList.add("display");
+            }
 
-        const ITEM_ARRAY = Array.from(document.querySelectorAll(".todo-item"));
+            const ITEM_ARRAY = Array.from(document.querySelectorAll(".todo-item"));
 
-        if (ITEM_ARRAY.length == 0) {
-            TODO_CONTAINER.classList.toggle("active");
-        }
+            if (ITEM_ARRAY.length == 0) {
+                TODO_CONTAINER.classList.toggle("active");
+            }
 
-        tasksLeft();
+            console.log(ITEM_ARRAY);
+            tasksLeft();
+        }, 350);
     });
 
     tasksLeft();

@@ -47,6 +47,32 @@
   }
 }
 
+@-webkit-keyframes slideOut {
+  from {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+    opacity: 1;
+  }
+  to {
+    -webkit-transform: translateX(50%);
+            transform: translateX(50%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+    opacity: 1;
+  }
+  to {
+    -webkit-transform: translateX(50%);
+            transform: translateX(50%);
+    opacity: 0;
+  }
+}
+
 html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -313,6 +339,7 @@ body {
 
 .todo-controls > .filter-controls--wrap {
   padding: 2rem;
+  margin-top: 2.5rem;
   background: var(--clr-list-bg);
   border-radius: 0 0 0.5rem 0.5rem;
   display: -webkit-box;
@@ -323,7 +350,6 @@ body {
           justify-content: center;
   border-top: none;
   border-radius: 0.5rem;
-  margin-top: 2rem;
   -webkit-box-shadow: 0 5px 15px rgba(32, 32, 32, 0.26);
           box-shadow: 0 5px 15px rgba(32, 32, 32, 0.26);
   position: absolute;
@@ -452,7 +478,6 @@ body {
 
 .todo--container > .todo-list {
   width: 100%;
-  background: red;
   border-radius: 0.5rem 0.5rem 0 0;
   overflow: hidden;
 }

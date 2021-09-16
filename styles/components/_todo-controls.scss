@@ -30,13 +30,13 @@
 
     > .filter-controls--wrap {
         padding: 2rem;
+        margin-top: 2.5rem;
         background: var(--clr-list-bg);
         border-radius: 0 0 $border-radius $border-radius;
         display: flex;
         justify-content: center;
         border-top: none;
         border-radius: $border-radius;
-        margin-top: 2rem;
         box-shadow: $box-shadow;
         position: absolute;
         width: 100%;
