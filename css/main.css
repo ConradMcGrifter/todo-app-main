@@ -443,12 +443,13 @@ body {
   width: 100%;
   max-width: 65rem;
   padding: 0 2rem 2rem 2rem;
-  margin-bottom: 7rem;
+  margin-bottom: 15rem;
 }
 
 @media only screen and (min-width: 850px) {
   .main {
     padding: 2rem;
+    margin-bottom: 8rem;
   }
 }
 

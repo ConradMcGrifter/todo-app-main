@@ -2,9 +2,10 @@
     width: 100%;
     max-width: $max-width;
     padding: 0 2rem 2rem 2rem;
-    margin-bottom: 7rem;
+    margin-bottom: 15rem;
 
     @include desktopSize {
         padding: 2rem;
+        margin-bottom: 8rem;
     }
 }
