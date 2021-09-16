@@ -201,10 +201,6 @@ body {
   visibility: visible;
 }
 
-.todo-item.display, .display.todo-empty {
-  display: none;
-}
-
 .todo-item.completed, .completed.todo-empty {
   display: -webkit-box;
   display: -ms-flexbox;

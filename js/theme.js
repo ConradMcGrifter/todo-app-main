@@ -1,6 +1,10 @@
 const THEME_TOGGLE = document.querySelector("#theme-toggle");
 let darkMode = localStorage.getItem("darkMode");
 
+if (darkMode === "enabled") {
+    document.body.classList.add("dark-mode");
+}
+
 const toggleTheme = () => {
     const BODY = document.body;
     const MOON = document.querySelector(".moon");
@@ -14,14 +18,10 @@ const toggleTheme = () => {
 
     if (BODY.classList.contains("dark-mode")) {
         localStorage.setItem("darkMode", "enabled");
-    } else if (!BODY.classList.contains("dark-mode")) {
+    } else {
         localStorage.setItem("darkMode", null);
     }
 };
-
-if (darkMode === "enabled") {
-    document.body.classList.add("dark-mode");
-}
 
 THEME_TOGGLE.addEventListener("click", () => {
     toggleTheme();
