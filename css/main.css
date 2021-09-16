@@ -144,12 +144,11 @@ body {
           align-items: center;
   padding: 1.5rem;
   background-color: var(--clr-list-bg);
-  border-radius: 0.5rem 0.5rem 0 0;
+  border-bottom: solid 1px var(--clr-text-completed);
 }
 
 .todo-item + .todo-item, .todo-empty + .todo-item, .todo-item + .todo-empty, .todo-empty + .todo-empty {
   border-radius: 0;
-  border-top: solid 1px var(--clr-text-completed);
 }
 
 .todo-item:hover .close, .todo-empty:hover .close {
@@ -247,7 +246,7 @@ body {
 }
 
 .todo-empty .empty-text {
-  color: var(--clr-text-completed);
+  color: var(--clr-text-secondary);
   margin-left: auto;
   margin-right: auto;
 }
@@ -326,12 +325,14 @@ body {
 .todo--wrap {
   -webkit-box-shadow: 0 5px 15px rgba(32, 32, 32, 0.26);
           box-shadow: 0 5px 15px rgba(32, 32, 32, 0.26);
+  margin-top: 3rem;
+  background: var(--clr-list-bg);
   border-radius: 0.5rem;
+  overflow: hidden;
 }
 
 .todo--wrap > .todo-list {
   width: 100%;
-  margin-top: 3rem;
 }
 
 .todo--wrap > .todo-list .todo-item, .todo--wrap > .todo-list .todo-empty {
@@ -341,7 +342,6 @@ body {
 .todo--wrap > .todo-controls {
   padding: 2rem;
   background: var(--clr-list-bg);
-  border-top: solid 1px var(--clr-text-completed);
   border-radius: 0 0 0.5rem 0.5rem;
   display: -webkit-box;
   display: -ms-flexbox;

@@ -76,10 +76,6 @@ const filterActive = () => {
     } else {
         TODO_EMPTY.classList.remove("display");
     }
-
-    // 🔻🔻🔻🔻🔻🔻🔻🔻working on this part here🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻
-    globalActiveArr[0].style.borderRadius = ".5rem .5rem 0 0";
-    globalActiveArr[0].style.borderTop = "none";
 };
 
 const filterCompleted = () => {
@@ -110,8 +106,6 @@ const filterCompleted = () => {
     console.log(document.querySelectorAll(".todo-item"));
     console.log(globalActiveArr + " active");
     console.log(globalCompletedArr + " completed");
-
-    globalCompletedArr[0].style.borderRadius = ".5rem .5rem 0 0";
 };
 
 const showAll = () => {

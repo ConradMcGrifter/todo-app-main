@@ -3,11 +3,11 @@
     align-items: center;
     padding: 1.5rem;
     background-color: var(--clr-list-bg);
-    border-radius: $border-radius $border-radius 0 0;
+    border-bottom: solid 1px var(--clr-text-completed);
 
     & + .todo-item {
         border-radius: 0;
-        border-top: solid 1px var(--clr-text-completed);
+        // border-top: solid 1px var(--clr-text-completed);
     }
 
     &:hover .close {
