@@ -235,7 +235,7 @@ body {
 }
 
 .todo-empty {
-  padding: 2rem;
+  padding: 1.85rem;
   display: none;
 }
 
@@ -249,6 +249,114 @@ body {
   color: var(--clr-text-secondary);
   margin-left: auto;
   margin-right: auto;
+}
+
+.todo-controls {
+  padding: 2rem;
+  background: var(--clr-list-bg);
+  border-radius: 0 0 0.5rem 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+
+@media only screen and (min-width: 850px) {
+  .todo-controls {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+.todo-controls .itemsLeft, .todo-controls .clear {
+  color: var(--clr-text-secondary);
+  font-size: 1.4rem;
+  -webkit-transition: color 0.25s;
+  transition: color 0.25s;
+  width: 100%;
+}
+
+.todo-controls .clear {
+  text-align: end;
+  cursor: pointer;
+  width: 100%;
+}
+
+.todo-controls .clear:hover {
+  color: var(--clr-text-secondary-hover);
+}
+
+.todo-controls .todo-controls-mobile {
+  padding: 2rem;
+  background: var(--clr-list-bg);
+  border-radius: 0 0 0.5rem 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-top: none;
+  border-radius: 0.5rem;
+  margin-top: 2rem;
+  -webkit-box-shadow: 0 5px 15px rgba(32, 32, 32, 0.26);
+          box-shadow: 0 5px 15px rgba(32, 32, 32, 0.26);
+  position: absolute;
+  width: 100%;
+  top: 5rem;
+  left: 0rem;
+}
+
+@media only screen and (min-width: 850px) {
+  .todo-controls .todo-controls-mobile {
+    position: unset;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    -webkit-box-shadow: unset;
+            box-shadow: unset;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.todo-controls .todo-controls-mobile .mobile-controls--wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li {
+  cursor: pointer;
+  list-style: none;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li + .controls-li {
+  margin-left: 2.5rem;
+}
+
+.todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li .all,
+.todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li .active,
+.todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li .completed {
+  color: var(--clr-text-secondary);
+}
+
+.todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li .all:hover,
+.todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li .active:hover,
+.todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li .completed:hover {
+  color: var(--clr-bright-blue);
+}
+
+.todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li .all.selected,
+.todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li .active.selected,
+.todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li .completed.selected {
+  color: var(--clr-bright-blue);
 }
 
 .header {
@@ -337,113 +445,5 @@ body {
 
 .todo--wrap > .todo-list .todo-item, .todo--wrap > .todo-list .todo-empty {
   width: 100%;
-}
-
-.todo--wrap > .todo-controls {
-  padding: 2rem;
-  background: var(--clr-list-bg);
-  border-radius: 0 0 0.5rem 0.5rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
-}
-
-@media only screen and (min-width: 850px) {
-  .todo--wrap > .todo-controls {
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-  }
-}
-
-.todo--wrap > .todo-controls .itemsLeft, .todo--wrap > .todo-controls .clear {
-  color: var(--clr-text-secondary);
-  font-size: 1.4rem;
-  -webkit-transition: color 0.25s;
-  transition: color 0.25s;
-  width: 100%;
-}
-
-.todo--wrap > .todo-controls .clear {
-  text-align: end;
-  cursor: pointer;
-  width: 100%;
-}
-
-.todo--wrap > .todo-controls .clear:hover {
-  color: var(--clr-text-secondary-hover);
-}
-
-.todo--wrap > .todo-controls .todo-controls-mobile {
-  padding: 2rem;
-  background: var(--clr-list-bg);
-  border-radius: 0 0 0.5rem 0.5rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  border-top: none;
-  border-radius: 0.5rem;
-  margin-top: 2rem;
-  -webkit-box-shadow: 0 5px 15px rgba(32, 32, 32, 0.26);
-          box-shadow: 0 5px 15px rgba(32, 32, 32, 0.26);
-  position: absolute;
-  width: 100%;
-  top: 5rem;
-  left: 0rem;
-}
-
-@media only screen and (min-width: 850px) {
-  .todo--wrap > .todo-controls .todo-controls-mobile {
-    position: unset;
-    width: -webkit-max-content;
-    width: -moz-max-content;
-    width: max-content;
-    -webkit-box-shadow: unset;
-            box-shadow: unset;
-    padding: 0;
-    margin: 0;
-  }
-}
-
-.todo--wrap > .todo-controls .todo-controls-mobile .mobile-controls--wrap {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.todo--wrap > .todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li {
-  cursor: pointer;
-  list-style: none;
-  font-size: 1.4rem;
-  font-weight: 700;
-}
-
-.todo--wrap > .todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li + .controls-li {
-  margin-left: 2.5rem;
-}
-
-.todo--wrap > .todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li .all,
-.todo--wrap > .todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li .active,
-.todo--wrap > .todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li .completed {
-  color: var(--clr-text-secondary);
-}
-
-.todo--wrap > .todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li .all:hover,
-.todo--wrap > .todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li .active:hover,
-.todo--wrap > .todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li .completed:hover {
-  color: var(--clr-bright-blue);
-}
-
-.todo--wrap > .todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li .all.selected,
-.todo--wrap > .todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li .active.selected,
-.todo--wrap > .todo-controls .todo-controls-mobile .mobile-controls--wrap .controls-li .completed.selected {
-  color: var(--clr-bright-blue);
 }
 /*# sourceMappingURL=main.css.map */

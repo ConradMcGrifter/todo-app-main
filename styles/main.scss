@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
 @import "abstracts/mixins", "abstracts/variables", "abstracts/functions";
 @import "base";
-@import "components/todo-input", "components/todo-item", "components/todo-empty";
+@import "components/todo-input", "components/todo-item", "components/todo-empty",
+    "components/todo-controls";
 @import "layout/header", "layout/main--container", "layout/todo--container";
