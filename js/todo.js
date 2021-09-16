@@ -20,13 +20,8 @@ const tasksLeft = () => {
     const ITEMS_LEFT_COUNTER = document.querySelector(".itemsLeft"); // element that will display the number of tasks left to complete
 
     let itemsArray = Array.from(TODO_LIST.querySelectorAll(".todoText")); //grab all the items currently in the Todo List
-    let unfinishedItemsArray = [];
-
-    //if the item doesnt contain the class "completed" --> push it into the unfinishedItemsArray
-    itemsArray.forEach((item) => {
-        if (!item.classList.contains("completed")) {
-            unfinishedItemsArray.push(item);
-        }
+    let unfinishedItemsArray = itemsArray.filter((e) => {
+        return !e.classList.contains("completed");
     });
 
     //set inner text of the counter element based on the length of the unfinishedItemsArray
