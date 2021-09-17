@@ -14,7 +14,7 @@ const EMPTY_TEXT = document.querySelector(".empty-text");
 let globalCompletedArr = [];
 let globalActiveArr = [];
 
-// ------ ⚙ ⚙ ⚙ ⚙ ⚙ 🔻 FUNCTIONS 🔻 ⚙ ⚙ ⚙ ⚙ ⚙ ------
+// ------------------------------------⚙ ⚙ ⚙ ⚙ ⚙ 🔻 FUNCTIONS 🔻 ⚙ ⚙ ⚙ ⚙ ⚙
 
 const tasksLeft = () => {
     const ITEMS_LEFT_COUNTER = document.querySelector(".itemsLeft"); // element that will display the number of tasks left to complete
@@ -27,6 +27,7 @@ const tasksLeft = () => {
     //set inner text of the counter element based on the length of the unfinishedItemsArray
     ITEMS_LEFT_COUNTER.innerText = `${unfinishedItemsArray.length} items left`;
 };
+//-------------------------------------------------------------------------
 
 const setGlobalArrayValues = () => {
     let items = Array.from(document.querySelectorAll(".todo-item")); // grab all the items currently in the todo list
@@ -45,7 +46,9 @@ const setGlobalArrayValues = () => {
     globalActiveArr = activeItems;
     globalCompletedArr = completedItems;
 };
+//-------------------------------------------------------------------------
 
+// this function takes the globalCompleted and globalActive arrays as parameters
 const setItemVisibility = (hideArr, showArr) => {
     // add the hidden class to each item
     hideArr.forEach((item) => {
@@ -57,6 +60,7 @@ const setItemVisibility = (hideArr, showArr) => {
         item.classList.remove("hidden");
     });
 };
+//-------------------------------------------------------------------------
 
 const alertEmptyList = (filterElement, filteredArr, message) => {
     if (
@@ -69,6 +73,7 @@ const alertEmptyList = (filterElement, filteredArr, message) => {
         TODO_EMPTY.classList.remove("display");
     }
 };
+//-------------------------------------------------------------------------
 
 const filterActive = () => {
     FILTER_ACTIVE.classList.add("selected");
@@ -81,6 +86,7 @@ const filterActive = () => {
 
     alertEmptyList(FILTER_ACTIVE, globalActiveArr, "No active tasks");
 };
+//-------------------------------------------------------------------------
 
 const filterCompleted = () => {
     FILTER_ACTIVE.classList.remove("selected");
@@ -97,6 +103,7 @@ const filterCompleted = () => {
         "No completed tasks"
     );
 };
+//-------------------------------------------------------------------------
 
 const showAll = () => {
     FILTER_ACTIVE.classList.remove("selected");
@@ -115,6 +122,7 @@ const showAll = () => {
         TODO_EMPTY.classList.remove("display");
     }
 };
+//-------------------------------------------------------------------------
 
 const createTodo = () => {
     if (TODO_INPUT.value == "") {
