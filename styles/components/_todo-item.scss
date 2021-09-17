@@ -37,7 +37,11 @@
         position: relative;
 
         &:hover {
-            background: linear-gradient(var(--clr-list-bg), var(--clr-list-bg)) padding-box,
+            background: linear-gradient(
+                        var(--clr-list-bg),
+                        var(--clr-list-bg)
+                    )
+                    padding-box,
                 linear-gradient($gradient) border-box;
             border: 0.2rem solid transparent;
         }
@@ -55,11 +59,16 @@
         color: var(--clr-text);
         display: inline;
         margin-right: 2rem;
+        cursor: pointer;
 
         &.completed {
             color: var(--clr-text-completed);
             text-decoration-line: line-through;
             text-decoration-thickness: 0.2rem;
+        }
+
+        &:hover {
+            color: white;
         }
     }
 

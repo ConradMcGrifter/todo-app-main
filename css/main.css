@@ -239,6 +239,7 @@ body {
   color: var(--clr-text);
   display: inline;
   margin-right: 2rem;
+  cursor: pointer;
 }
 
 .todo-item > .todoText.completed, .todo-empty > .todoText.completed {
@@ -246,6 +247,10 @@ body {
   -webkit-text-decoration-line: line-through;
           text-decoration-line: line-through;
   text-decoration-thickness: 0.2rem;
+}
+
+.todo-item > .todoText:hover, .todo-empty > .todoText:hover {
+  color: white;
 }
 
 .todo-item > .close, .todo-empty > .close {

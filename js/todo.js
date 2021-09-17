@@ -59,7 +59,10 @@ const setItemVisibility = (hideArr, showArr) => {
 };
 
 const alertEmptyList = (filterElement, filteredArr, message) => {
-    if (filterElement.classList.contains("selected") && filteredArr.length === 0) {
+    if (
+        filterElement.classList.contains("selected") &&
+        filteredArr.length === 0
+    ) {
         TODO_EMPTY.classList.add("display");
         EMPTY_TEXT.innerText = message;
     } else {
@@ -88,7 +91,11 @@ const filterCompleted = () => {
 
     setItemVisibility(globalActiveArr, globalCompletedArr);
 
-    alertEmptyList(FILTER_COMPLETED, globalCompletedArr, "No completed tasks");
+    alertEmptyList(
+        FILTER_COMPLETED,
+        globalCompletedArr,
+        "No completed tasks"
+    );
 };
 
 const showAll = () => {
@@ -137,7 +144,11 @@ const createTodo = () => {
 
     setGlobalArrayValues();
 
-    if (FILTER_ACTIVE.classList.contains("selected") && globalActiveArr.length > 0) {
+    // when the user creates a todo item, if the filter by active option is selected and the number of active items is greater than 0 --> remove the display class from the "empty list warning" element
+    if (
+        FILTER_ACTIVE.classList.contains("selected") &&
+        globalActiveArr.length > 0
+    ) {
         TODO_EMPTY.classList.remove("display");
         filterActive();
     } else if (FILTER_COMPLETED.classList.contains("selected")) {
@@ -146,6 +157,25 @@ const createTodo = () => {
 
     // 🔔 event listener for the circle checkbox
     CHECKBOX.addEventListener("click", () => {
+        CHECKBOX.classList.toggle("toggleCheck");
+        TODO_TEXT.classList.toggle("completed");
+        TODO_ITEM.classList.toggle("completed");
+
+        if (FILTER_ACTIVE.classList.contains("selected")) {
+            filterActive();
+        }
+
+        if (FILTER_COMPLETED.classList.contains("selected")) {
+            filterCompleted();
+        }
+
+        setGlobalArrayValues();
+
+        tasksLeft();
+    });
+
+    // 🔔 event listener for the todo-text --> it is the same code as the event listener for checkbox
+    TODO_TEXT.addEventListener("click", () => {
         CHECKBOX.classList.toggle("toggleCheck");
         TODO_TEXT.classList.toggle("completed");
         TODO_ITEM.classList.toggle("completed");
@@ -179,7 +209,9 @@ const createTodo = () => {
                 filterCompleted();
             }
 
-            const ITEM_ARRAY = Array.from(document.querySelectorAll(".todo-item"));
+            const ITEM_ARRAY = Array.from(
+                document.querySelectorAll(".todo-item")
+            );
 
             if (ITEM_ARRAY.length == 0) {
                 TODO_CONTAINER.classList.toggle("active");
