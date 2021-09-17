@@ -46,6 +46,27 @@ const setGlobalArrayValues = () => {
     globalCompletedArr = completedItems;
 };
 
+const setItemVisibility = (hideArr, showArr) => {
+    // add the hidden class to each item
+    hideArr.forEach((item) => {
+        item.classList.add("hidden");
+    });
+
+    //remove the "hidden" class from each item
+    showArr.forEach((item) => {
+        item.classList.remove("hidden");
+    });
+};
+
+const alertEmptyList = (filterElement, filteredArr, message) => {
+    if (filterElement.classList.contains("selected") && filteredArr.length === 0) {
+        TODO_EMPTY.classList.add("display");
+        EMPTY_TEXT.innerText = message;
+    } else {
+        TODO_EMPTY.classList.remove("display");
+    }
+};
+
 const filterActive = () => {
     FILTER_ACTIVE.classList.add("selected");
     FILTER_COMPLETED.classList.remove("selected");
@@ -53,22 +74,9 @@ const filterActive = () => {
 
     setGlobalArrayValues();
 
-    //remove the "hidden" class from each item in the globalActiveArr
-    globalActiveArr.forEach((item) => {
-        item.classList.remove("hidden");
-    });
+    setItemVisibility(globalCompletedArr, globalActiveArr);
 
-    // add the hidden class to each item in the globalCompletedArr
-    globalCompletedArr.forEach((item) => {
-        item.classList.add("hidden");
-    });
-
-    if (FILTER_ACTIVE.classList.contains("selected") && globalActiveArr.length === 0) {
-        TODO_EMPTY.classList.add("display");
-        EMPTY_TEXT.innerText = "No active tasks";
-    } else {
-        TODO_EMPTY.classList.remove("display");
-    }
+    alertEmptyList(FILTER_ACTIVE, globalActiveArr, "No active tasks");
 };
 
 const filterCompleted = () => {
@@ -78,20 +86,9 @@ const filterCompleted = () => {
 
     setGlobalArrayValues();
 
-    globalActiveArr.forEach((item) => {
-        item.classList.add("hidden");
-    });
+    setItemVisibility(globalActiveArr, globalCompletedArr);
 
-    globalCompletedArr.forEach((item) => {
-        item.classList.remove("hidden");
-    });
-
-    if (FILTER_COMPLETED.classList.contains("selected") && globalCompletedArr.length === 0) {
-        TODO_EMPTY.classList.add("display");
-        EMPTY_TEXT.innerText = "No completed tasks";
-    } else {
-        TODO_EMPTY.classList.remove("display");
-    }
+    alertEmptyList(FILTER_COMPLETED, globalCompletedArr, "No completed tasks");
 };
 
 const showAll = () => {
