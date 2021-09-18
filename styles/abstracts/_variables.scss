@@ -5,7 +5,8 @@ $border-radius: 0.5rem;
 $box-shadow: 0 5px 15px rgba(32, 32, 32, 0.26);
 
 $bg-light-mobile: url("../images/bg-mobile-light.jpg") no-repeat, var(--clr-bg);
-$bg-light-desktop: url("../images/bg-desktop-light.jpg") no-repeat, var(--clr-bg);
+$bg-light-desktop: url("../images/bg-desktop-light.jpg") no-repeat,
+    var(--clr-bg);
 
 $bg-dark-mobile: url("../images/bg-mobile-dark.jpg") no-repeat, var(--clr-bg);
 $bg-dark-desktop: url("../images/bg-desktop-dark.jpg") no-repeat, var(--clr-bg);
@@ -18,7 +19,7 @@ $bg-dark-desktop: url("../images/bg-desktop-dark.jpg") no-repeat, var(--clr-bg);
     --clr-text: hsl(235, 19%, 35%);
     --clr-text-completed: hsl(233, 11%, 84%);
     --clr-text-secondary: hsl(236, 9%, 61%);
-    --clr-text-secondary-hover: hsl(235, 19%, 35%);
+    --clr-text-secondary-hover: hsl(237, 18%, 19%);
     //
     --clr-bright-blue: hsl(220, 98%, 61%);
 }

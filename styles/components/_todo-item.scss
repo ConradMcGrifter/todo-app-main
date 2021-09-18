@@ -15,10 +15,6 @@
         visibility: visible;
     }
 
-    // &.display {
-    //     display: none;
-    // }
-
     &.completed {
         display: flex;
     }
@@ -37,10 +33,7 @@
         position: relative;
 
         &:hover {
-            background: linear-gradient(
-                        var(--clr-list-bg),
-                        var(--clr-list-bg)
-                    )
+            background: linear-gradient(var(--clr-list-bg), var(--clr-list-bg))
                     padding-box,
                 linear-gradient($gradient) border-box;
             border: 0.2rem solid transparent;
@@ -68,7 +61,7 @@
         }
 
         &:hover {
-            color: white;
+            color: var(--clr-text-secondary-hover);
         }
     }
 
