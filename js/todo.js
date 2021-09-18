@@ -97,11 +97,7 @@ const filterCompleted = () => {
 
     setItemVisibility(globalActiveArr, globalCompletedArr);
 
-    alertEmptyList(
-        FILTER_COMPLETED,
-        globalCompletedArr,
-        "No completed tasks"
-    );
+    alertEmptyList(FILTER_COMPLETED, globalCompletedArr, "No completed tasks");
 };
 //-------------------------------------------------------------------------
 
@@ -203,8 +199,10 @@ const createTodo = () => {
 
     // 🔔 event listener for the "X" close button
     TODO_CLOSE.addEventListener("click", () => {
+        //this animation runs before the item is rmoved
         TODO_ITEM.style.animation = "slideOut .5s ease";
 
+        //this code runs after 350 milliseconds so that the animation has time to play
         setTimeout(function () {
             TODO_ITEM.remove();
             setGlobalArrayValues();
@@ -221,11 +219,15 @@ const createTodo = () => {
                 document.querySelectorAll(".todo-item")
             );
 
-            if (ITEM_ARRAY.length == 0) {
-                TODO_CONTAINER.classList.toggle("active");
-            }
-
             tasksLeft();
+
+            //hide the entire todo-container if there are no completed or active tasks left
+            if (
+                globalCompletedArr.length === 0 &&
+                globalActiveArr.length === 0
+            ) {
+                TODO_CONTAINER.classList.remove("active");
+            }
         }, 350);
     });
 
@@ -247,6 +249,7 @@ CLEAR_COMPLETED.addEventListener("click", () => {
         EMPTY_TEXT.innerText = "No completed tasks";
     }
 
+    //hide the entire todo-container if there are no completed or active tasks left
     if (globalCompletedArr.length === 0 && globalActiveArr.length === 0) {
         TODO_CONTAINER.classList.remove("active");
     }
