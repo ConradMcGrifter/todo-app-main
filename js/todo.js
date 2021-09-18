@@ -2,9 +2,9 @@ const TODO_INPUT = document.querySelector(".input");
 export const TODO_LIST = document.querySelector(".todo-list");
 const TODO_CONTAINER = document.querySelector(".todo--container");
 
-const FILTER_ACTIVE = document.querySelector(".active");
-const FILTER_COMPLETED = document.querySelector(".completed");
-const FILTER_ALL = document.querySelector(".all");
+const ACTIVE_FILTER = document.querySelector(".active");
+const COMPLETED_FILTER = document.querySelector(".completed");
+const ALL_FILTER = document.querySelector(".all");
 
 const CLEAR_COMPLETED = document.querySelector(".clear");
 
@@ -16,7 +16,7 @@ let globalActiveArr = [];
 
 // ------------------------------------⚙ ⚙ ⚙ ⚙ ⚙ 🔻 FUNCTIONS 🔻 ⚙ ⚙ ⚙ ⚙ ⚙
 
-const tasksLeft = () => {
+const displayTasksLeft = () => {
     const ITEMS_LEFT_COUNTER = document.querySelector(".itemsLeft"); // element that will display the number of tasks left to complete
 
     let itemsArray = Array.from(TODO_LIST.querySelectorAll(".todoText")); //grab all the items currently in the Todo List
@@ -76,35 +76,39 @@ const alertEmptyList = (filterElement, filteredArr, message) => {
 //-------------------------------------------------------------------------
 
 const filterActive = () => {
-    FILTER_ACTIVE.classList.add("selected");
-    FILTER_COMPLETED.classList.remove("selected");
-    FILTER_ALL.classList.remove("selected");
+    ACTIVE_FILTER.classList.add("selected");
+    COMPLETED_FILTER.classList.remove("selected");
+    ALL_FILTER.classList.remove("selected");
 
     setGlobalArrayValues();
 
     setItemVisibility(globalCompletedArr, globalActiveArr);
 
-    alertEmptyList(FILTER_ACTIVE, globalActiveArr, "No active tasks");
+    alertEmptyList(ACTIVE_FILTER, globalActiveArr, "No active tasks");
 };
 //-------------------------------------------------------------------------
 
 const filterCompleted = () => {
-    FILTER_ACTIVE.classList.remove("selected");
-    FILTER_COMPLETED.classList.add("selected");
-    FILTER_ALL.classList.remove("selected");
+    ACTIVE_FILTER.classList.remove("selected");
+    COMPLETED_FILTER.classList.add("selected");
+    ALL_FILTER.classList.remove("selected");
 
     setGlobalArrayValues();
 
     setItemVisibility(globalActiveArr, globalCompletedArr);
 
-    alertEmptyList(FILTER_COMPLETED, globalCompletedArr, "No completed tasks");
+    alertEmptyList(
+        COMPLETED_FILTER,
+        globalCompletedArr,
+        "No completed tasks"
+    );
 };
 //-------------------------------------------------------------------------
 
 const showAll = () => {
-    FILTER_ACTIVE.classList.remove("selected");
-    FILTER_COMPLETED.classList.remove("selected");
-    FILTER_ALL.classList.add("selected");
+    ACTIVE_FILTER.classList.remove("selected");
+    COMPLETED_FILTER.classList.remove("selected");
+    ALL_FILTER.classList.add("selected");
 
     globalCompletedArr.forEach((item) => {
         item.classList.remove("hidden");
@@ -114,7 +118,7 @@ const showAll = () => {
         item.classList.remove("hidden");
     });
 
-    if (FILTER_ALL.classList.contains("selected")) {
+    if (ALL_FILTER.classList.contains("selected")) {
         TODO_EMPTY.classList.remove("display");
     }
 };
@@ -150,12 +154,12 @@ const createTodo = () => {
 
     // when the user creates a todo item, if the filter by active option is selected and the number of active items is greater than 0 --> remove the display class from the "empty list warning" element
     if (
-        FILTER_ACTIVE.classList.contains("selected") &&
+        ACTIVE_FILTER.classList.contains("selected") &&
         globalActiveArr.length > 0
     ) {
         TODO_EMPTY.classList.remove("display");
         filterActive();
-    } else if (FILTER_COMPLETED.classList.contains("selected")) {
+    } else if (COMPLETED_FILTER.classList.contains("selected")) {
         showAll();
     }
 
@@ -165,17 +169,17 @@ const createTodo = () => {
         TODO_TEXT.classList.toggle("completed");
         TODO_ITEM.classList.toggle("completed");
 
-        if (FILTER_ACTIVE.classList.contains("selected")) {
+        if (ACTIVE_FILTER.classList.contains("selected")) {
             filterActive();
         }
 
-        if (FILTER_COMPLETED.classList.contains("selected")) {
+        if (COMPLETED_FILTER.classList.contains("selected")) {
             filterCompleted();
         }
 
         setGlobalArrayValues();
 
-        tasksLeft();
+        displayTasksLeft();
     });
 
     // 🔔 event listener for the todo-text --> it is the same code as the event listener for checkbox
@@ -184,34 +188,34 @@ const createTodo = () => {
         TODO_TEXT.classList.toggle("completed");
         TODO_ITEM.classList.toggle("completed");
 
-        if (FILTER_ACTIVE.classList.contains("selected")) {
+        if (ACTIVE_FILTER.classList.contains("selected")) {
             filterActive();
         }
 
-        if (FILTER_COMPLETED.classList.contains("selected")) {
+        if (COMPLETED_FILTER.classList.contains("selected")) {
             filterCompleted();
         }
 
         setGlobalArrayValues();
 
-        tasksLeft();
+        displayTasksLeft();
     });
 
     // 🔔 event listener for the "X" close button
     TODO_CLOSE.addEventListener("click", () => {
         //this animation runs before the item is rmoved
-        TODO_ITEM.style.animation = "slideOut .5s ease";
+        TODO_ITEM.style.animation = "fadeOut .25s ease";
 
         //this code runs after 350 milliseconds so that the animation has time to play
         setTimeout(function () {
             TODO_ITEM.remove();
             setGlobalArrayValues();
 
-            if (FILTER_ACTIVE.classList.contains("selected")) {
+            if (ACTIVE_FILTER.classList.contains("selected")) {
                 filterActive();
             }
 
-            if (FILTER_COMPLETED.classList.contains("selected")) {
+            if (COMPLETED_FILTER.classList.contains("selected")) {
                 filterCompleted();
             }
 
@@ -219,7 +223,7 @@ const createTodo = () => {
                 document.querySelectorAll(".todo-item")
             );
 
-            tasksLeft();
+            displayTasksLeft();
 
             //hide the entire todo-container if there are no completed or active tasks left
             if (
@@ -228,10 +232,10 @@ const createTodo = () => {
             ) {
                 TODO_CONTAINER.classList.remove("active");
             }
-        }, 350);
+        }, 250);
     });
 
-    tasksLeft();
+    displayTasksLeft();
 }; // createTodo() function end
 
 // -------------------🔔 🔔 EVENT LISTENERS🔔 🔔-------------------
@@ -244,7 +248,7 @@ CLEAR_COMPLETED.addEventListener("click", () => {
 
     setGlobalArrayValues();
 
-    if (FILTER_COMPLETED.classList.contains("selected")) {
+    if (COMPLETED_FILTER.classList.contains("selected")) {
         TODO_EMPTY.classList.add("display");
         EMPTY_TEXT.innerText = "No completed tasks";
     }
@@ -255,7 +259,7 @@ CLEAR_COMPLETED.addEventListener("click", () => {
     }
 });
 
-// 🔻 adds todo item when the enter key is pressed
+// 🔻 create todo item when the enter key is pressed
 TODO_INPUT.addEventListener("keyup", (event) => {
     if (event.key === "Enter") {
         event.preventDefault();
@@ -266,8 +270,8 @@ TODO_INPUT.addEventListener("keyup", (event) => {
     }
 });
 
-FILTER_ACTIVE.addEventListener("click", filterActive);
+ACTIVE_FILTER.addEventListener("click", filterActive);
 
-FILTER_COMPLETED.addEventListener("click", filterCompleted);
+COMPLETED_FILTER.addEventListener("click", filterCompleted);
 
-FILTER_ALL.addEventListener("click", showAll);
+ALL_FILTER.addEventListener("click", showAll);
