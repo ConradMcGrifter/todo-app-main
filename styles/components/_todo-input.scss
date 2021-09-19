@@ -5,6 +5,24 @@
     padding: $padding;
     border-radius: $border-radius;
     box-shadow: $box-shadow;
+    position: relative;
+
+    &::after {
+        content: "input field is empty";
+        position: absolute;
+        top: 25%;
+        left: calc(100% - 1rem);
+        border-radius: 0 0.25rem 0.25rem 0;
+        transform: translateX(-100%);
+        width: max-content;
+        background: var(--clr-bright-blue);
+        color: white;
+        padding: 0.5rem;
+        z-index: 999;
+        transition: opacity 0.25s;
+        // 🔻 this gets changed with javaScript
+        opacity: var(--opacity, 0);
+    }
 
     .circle {
         width: 100%;
@@ -12,7 +30,12 @@
         height: 2.5rem;
         border-radius: 999rem;
         border: solid var(--clr-text-completed) 2px;
-        position: relative;
+        transition: background 0.25s;
+        cursor: pointer;
+
+        &:hover {
+            background: var(--clr-bright-blue);
+        }
     }
 
     .input {

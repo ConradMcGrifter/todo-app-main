@@ -153,6 +153,27 @@ body {
   border-radius: 0.5rem;
   -webkit-box-shadow: 0 5px 15px rgba(32, 32, 32, 0.26);
           box-shadow: 0 5px 15px rgba(32, 32, 32, 0.26);
+  position: relative;
+}
+
+.todo-input::after {
+  content: "input field is empty";
+  position: absolute;
+  top: 25%;
+  left: calc(100% - 1rem);
+  border-radius: 0 0.25rem 0.25rem 0;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  background: var(--clr-bright-blue);
+  color: white;
+  padding: 0.5rem;
+  z-index: 999;
+  -webkit-transition: opacity 0.25s;
+  transition: opacity 0.25s;
+  opacity: var(--opacity, 0);
 }
 
 .todo-input .circle {
@@ -161,7 +182,13 @@ body {
   height: 2.5rem;
   border-radius: 999rem;
   border: solid var(--clr-text-completed) 2px;
-  position: relative;
+  -webkit-transition: background 0.25s;
+  transition: background 0.25s;
+  cursor: pointer;
+}
+
+.todo-input .circle:hover {
+  background: var(--clr-bright-blue);
 }
 
 .todo-input .input {

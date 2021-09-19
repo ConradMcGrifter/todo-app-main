@@ -1,3 +1,4 @@
+const INPUT_WRAP = document.querySelector(".todo-input");
 const TODO_INPUT = document.querySelector(".input");
 export const TODO_LIST = document.querySelector(".todo-list");
 const TODO_CONTAINER = document.querySelector(".todo--container");
@@ -10,6 +11,8 @@ const CLEAR_COMPLETED = document.querySelector(".clear");
 
 const TODO_EMPTY = document.querySelector(".todo-empty");
 const EMPTY_TEXT = document.querySelector(".empty-text");
+
+const INPUT_CIRCLE = document.querySelector(".circle");
 
 let globalCompletedArr = [];
 let globalActiveArr = [];
@@ -68,10 +71,12 @@ const alertEmptyList = (filterElement, filteredArr, message) => {
         filteredArr.length === 0
     ) {
         TODO_EMPTY.classList.add("display");
-        EMPTY_TEXT.innerText = message;
+        0;
     } else {
         TODO_EMPTY.classList.remove("display");
     }
+
+    EMPTY_TEXT.innerText = message;
 
     //hide the entire todo-container if there are no completed or active tasks left
     if (globalCompletedArr.length === 0 && globalActiveArr.length === 0) {
@@ -132,7 +137,15 @@ const showAll = () => {
 
 const createTodo = () => {
     if (TODO_INPUT.value == "") {
+        INPUT_WRAP.style.setProperty("--opacity", 1);
         return;
+    }
+
+    INPUT_WRAP.style.setProperty("--opacity", 0);
+
+    // display the list container if the input field isnt blank
+    if (TODO_INPUT.value != "") {
+        TODO_CONTAINER.classList.add("active");
     }
 
     // create elements to be added to the DOM
@@ -266,10 +279,13 @@ TODO_INPUT.addEventListener("keyup", (event) => {
     if (event.key === "Enter") {
         event.preventDefault();
 
-        TODO_CONTAINER.classList.add("active");
-
         createTodo();
     }
+});
+
+// 🔻 create todo item when the input circle is clicked
+INPUT_CIRCLE.addEventListener("click", () => {
+    createTodo();
 });
 
 ACTIVE_FILTER.addEventListener("click", filterActive);
@@ -277,3 +293,9 @@ ACTIVE_FILTER.addEventListener("click", filterActive);
 COMPLETED_FILTER.addEventListener("click", filterCompleted);
 
 ALL_FILTER.addEventListener("click", showAll);
+
+TODO_INPUT.addEventListener("input", () => {
+    if (TODO_INPUT.value != "") {
+        INPUT_WRAP.style.setProperty("--opacity", 0);
+    }
+});
