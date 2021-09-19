@@ -72,6 +72,11 @@ const alertEmptyList = (filterElement, filteredArr, message) => {
     } else {
         TODO_EMPTY.classList.remove("display");
     }
+
+    //hide the entire todo-container if there are no completed or active tasks left
+    if (globalCompletedArr.length === 0 && globalActiveArr.length === 0) {
+        TODO_CONTAINER.classList.remove("active");
+    }
 };
 //-------------------------------------------------------------------------
 
@@ -85,6 +90,7 @@ const filterActive = () => {
     setItemVisibility(globalCompletedArr, globalActiveArr);
 
     alertEmptyList(ACTIVE_FILTER, globalActiveArr, "No active tasks");
+    console.log("test");
 };
 //-------------------------------------------------------------------------
 
@@ -248,15 +254,11 @@ CLEAR_COMPLETED.addEventListener("click", () => {
 
     setGlobalArrayValues();
 
-    if (COMPLETED_FILTER.classList.contains("selected")) {
-        TODO_EMPTY.classList.add("display");
-        EMPTY_TEXT.innerText = "No completed tasks";
-    }
-
-    //hide the entire todo-container if there are no completed or active tasks left
-    if (globalCompletedArr.length === 0 && globalActiveArr.length === 0) {
-        TODO_CONTAINER.classList.remove("active");
-    }
+    alertEmptyList(
+        COMPLETED_FILTER,
+        globalCompletedArr,
+        "No completed tasks"
+    );
 });
 
 // 🔻 create todo item when the enter key is pressed
