@@ -284,18 +284,17 @@ TODO_INPUT.addEventListener("keyup", (event) => {
 });
 
 // 🔻 create todo item when the input circle is clicked
-INPUT_CIRCLE.addEventListener("click", () => {
-    createTodo();
-});
+INPUT_CIRCLE.addEventListener("click", createTodo);
 
+// 🔻 filter controls event listeners
 ACTIVE_FILTER.addEventListener("click", filterActive);
 
 COMPLETED_FILTER.addEventListener("click", filterCompleted);
 
 ALL_FILTER.addEventListener("click", showAll);
 
+// 🔻 on input --> if input value != an empty string --> hide tooltip
 TODO_INPUT.addEventListener("input", () => {
-    //if the input has text in it, hide the tooltip
     if (TODO_INPUT.value != "") {
         INPUT_WRAP.style.setProperty("--opacity", 0);
     }
