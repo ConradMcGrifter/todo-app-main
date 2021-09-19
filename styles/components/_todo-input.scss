@@ -10,10 +10,10 @@
     &::after {
         content: "input field is empty";
         position: absolute;
-        transform: translateX(-100%);
-        padding: 0.5rem 1rem;
-        top: -2.5rem;
-        left: calc(100%);
+        transform: translateX(-50%);
+        padding: 0.5rem 1.5rem;
+        top: -2.45rem;
+        left: calc(50%);
         font-size: 1.4rem;
         border-radius: 0.25rem 0.25rem 0 0;
         width: max-content;
@@ -30,7 +30,6 @@
             top: 25%;
             left: calc(100% - 1rem);
             transform: translateX(-100%);
-            padding: 0.6rem 1.5rem;
             border-radius: 0.25rem;
         }
     }
