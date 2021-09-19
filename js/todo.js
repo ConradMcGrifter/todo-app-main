@@ -71,7 +71,6 @@ const alertEmptyList = (filterElement, filteredArr, message) => {
         filteredArr.length === 0
     ) {
         TODO_EMPTY.classList.add("display");
-        0;
     } else {
         TODO_EMPTY.classList.remove("display");
     }
@@ -92,6 +91,7 @@ const filterActive = () => {
 
     setGlobalArrayValues();
 
+    // first array is hidden, second array is visible
     setItemVisibility(globalCompletedArr, globalActiveArr);
 
     alertEmptyList(ACTIVE_FILTER, globalActiveArr, "No active tasks");
@@ -106,6 +106,7 @@ const filterCompleted = () => {
 
     setGlobalArrayValues();
 
+    // first array is hidden, second array is visible
     setItemVisibility(globalActiveArr, globalCompletedArr);
 
     alertEmptyList(
@@ -237,10 +238,6 @@ const createTodo = () => {
             if (COMPLETED_FILTER.classList.contains("selected")) {
                 filterCompleted();
             }
-
-            const ITEM_ARRAY = Array.from(
-                document.querySelectorAll(".todo-item")
-            );
 
             displayTasksLeft();
 
