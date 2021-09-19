@@ -1,7 +1,7 @@
 .todo-item {
     display: flex;
     align-items: center;
-    padding: 1.5rem;
+    padding: $padding;
     background-color: var(--clr-list-bg);
     border-bottom: solid 1px var(--clr-text-completed);
     cursor: grab;
@@ -33,7 +33,10 @@
         position: relative;
 
         &:hover {
-            background: linear-gradient(var(--clr-list-bg), var(--clr-list-bg))
+            background: linear-gradient(
+                        var(--clr-list-bg),
+                        var(--clr-list-bg)
+                    )
                     padding-box,
                 linear-gradient($gradient) border-box;
             border: 0.2rem solid transparent;

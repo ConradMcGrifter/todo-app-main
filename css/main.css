@@ -149,7 +149,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   background-color: var(--clr-list-bg);
-  padding: 1.5rem;
+  padding: 1.85rem;
   border-radius: 0.5rem;
   -webkit-box-shadow: 0 5px 15px rgba(32, 32, 32, 0.26);
           box-shadow: 0 5px 15px rgba(32, 32, 32, 0.26);
@@ -204,7 +204,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 1.5rem;
+  padding: 1.85rem;
   background-color: var(--clr-list-bg);
   border-bottom: solid 1px var(--clr-text-completed);
   cursor: -webkit-grab;
@@ -318,7 +318,7 @@ body {
 }
 
 .todo-controls {
-  padding: 2rem;
+  padding: calc(1.85rem + 0.35rem);
   background: var(--clr-list-bg);
   border-radius: 0 0 0.5rem 0.5rem;
   display: -webkit-box;
@@ -357,8 +357,7 @@ body {
 }
 
 .todo-controls > .filter-controls--wrap {
-  padding: 2rem;
-  margin-top: 2.5rem;
+  padding: calc(1.85rem + 0.3rem);
   background: var(--clr-list-bg);
   border-radius: 0 0 0.5rem 0.5rem;
   display: -webkit-box;
@@ -373,7 +372,7 @@ body {
           box-shadow: 0 5px 15px rgba(32, 32, 32, 0.26);
   position: absolute;
   width: 100%;
-  top: 5rem;
+  top: 8rem;
   left: 0rem;
 }
 

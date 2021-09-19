@@ -3,13 +3,17 @@ $gradient: to bottom right, hsl(192, 100%, 67%), hsl(280, 87%, 65%);
 $max-width: 65rem;
 $border-radius: 0.5rem;
 $box-shadow: 0 5px 15px rgba(32, 32, 32, 0.26);
+$padding: 1.85rem;
 
-$bg-light-mobile: url("../images/bg-mobile-light.jpg") no-repeat, var(--clr-bg);
+$bg-light-mobile: url("../images/bg-mobile-light.jpg") no-repeat,
+    var(--clr-bg);
 $bg-light-desktop: url("../images/bg-desktop-light.jpg") no-repeat,
     var(--clr-bg);
 
-$bg-dark-mobile: url("../images/bg-mobile-dark.jpg") no-repeat, var(--clr-bg);
-$bg-dark-desktop: url("../images/bg-desktop-dark.jpg") no-repeat, var(--clr-bg);
+$bg-dark-mobile: url("../images/bg-mobile-dark.jpg") no-repeat,
+    var(--clr-bg);
+$bg-dark-desktop: url("../images/bg-desktop-dark.jpg") no-repeat,
+    var(--clr-bg);
 
 // 🔻🔻 -- CSS variables for theme toggle -- 🔻🔻
 :root {
