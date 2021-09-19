@@ -8,6 +8,7 @@
   --clr-text-secondary: hsl(236, 9%, 61%);
   --clr-text-secondary-hover: hsl(237, 18%, 19%);
   --clr-bright-blue: hsl(220, 98%, 61%);
+  --clr-tooltip: hsl(235, 24%, 19%);
 }
 
 .dark-mode {
@@ -20,6 +21,7 @@
   --clr-text-completed: hsl(237, 14%, 26%);
   --clr-text-secondary: hsl(234, 11%, 52%);
   --clr-text-secondary-hover: hsl(236, 33%, 92%);
+  --clr-tooltip: hsl(220, 98%, 61%);
   --clr-box-shadow: hsl(235, 21%, 11%);
   --clr-Dark-grayish-blue: hsl(234, 11%, 52%);
 }
@@ -159,16 +161,17 @@ body {
 .todo-input::after {
   content: "input field is empty";
   position: absolute;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  padding: 0.5rem;
-  top: -2.85rem;
-  left: 50%;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  padding: 0.5rem 1rem;
+  top: -2.5rem;
+  left: calc(100%);
+  font-size: 1.4rem;
   border-radius: 0.25rem 0.25rem 0 0;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
-  background: var(--clr-bright-blue);
+  background: var(--clr-tooltip);
   color: white;
   z-index: 999;
   -webkit-transition: opacity 0.25s;
@@ -178,6 +181,7 @@ body {
 
 @media only screen and (min-width: 850px) {
   .todo-input::after {
+    font-size: unset;
     top: 25%;
     left: calc(100% - 1rem);
     -webkit-transform: translateX(-100%);

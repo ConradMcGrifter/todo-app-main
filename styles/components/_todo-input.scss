@@ -10,20 +10,23 @@
     &::after {
         content: "input field is empty";
         position: absolute;
-        transform: translateX(-50%);
-        padding: 0.5rem;
-        top: -2.85rem;
-        left: 50%;
+        transform: translateX(-100%);
+        padding: 0.5rem 1rem;
+        top: -2.5rem;
+        left: calc(100%);
+        font-size: 1.4rem;
         border-radius: 0.25rem 0.25rem 0 0;
         width: max-content;
-        background: var(--clr-bright-blue);
+        background: var(--clr-tooltip);
         color: white;
         z-index: 999;
+
         transition: opacity 0.25s;
         // 🔻 this gets changed with javaScript
         opacity: var(--opacity, 0);
 
         @include desktopSize {
+            font-size: unset;
             top: 25%;
             left: calc(100% - 1rem);
             transform: translateX(-100%);

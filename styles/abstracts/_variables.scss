@@ -26,6 +26,7 @@ $bg-dark-desktop: url("../images/bg-desktop-dark.jpg") no-repeat,
     --clr-text-secondary-hover: hsl(237, 18%, 19%);
     //
     --clr-bright-blue: hsl(220, 98%, 61%);
+    --clr-tooltip: hsl(235, 24%, 19%);
 }
 
 .dark-mode {
@@ -41,6 +42,7 @@ $bg-dark-desktop: url("../images/bg-desktop-dark.jpg") no-repeat,
     --clr-text-secondary: hsl(234, 11%, 52%);
     --clr-text-secondary-hover: hsl(236, 33%, 92%);
     //
+    --clr-tooltip: hsl(220, 98%, 61%);
     --clr-box-shadow: hsl(235, 21%, 11%);
     --clr-Dark-grayish-blue: hsl(234, 11%, 52%);
 
