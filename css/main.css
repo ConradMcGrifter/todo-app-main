@@ -161,11 +161,9 @@ body {
 .todo-input::after {
   content: "input field is empty";
   position: absolute;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
   padding: 0.5rem 1.5rem;
   top: -2.45rem;
-  left: calc(50%);
+  left: 0;
   font-size: 1.4rem;
   border-radius: 0.25rem 0.25rem 0 0;
   width: -webkit-max-content;

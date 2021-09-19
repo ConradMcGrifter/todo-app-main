@@ -295,6 +295,7 @@ COMPLETED_FILTER.addEventListener("click", filterCompleted);
 ALL_FILTER.addEventListener("click", showAll);
 
 TODO_INPUT.addEventListener("input", () => {
+    //if the input has text in it, hide the tooltip
     if (TODO_INPUT.value != "") {
         INPUT_WRAP.style.setProperty("--opacity", 0);
     }
