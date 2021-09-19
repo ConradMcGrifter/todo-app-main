@@ -12,12 +12,12 @@
         position: absolute;
         top: 25%;
         left: calc(100% - 1rem);
-        border-radius: 0 0.25rem 0.25rem 0;
+        border-radius: 0.25rem;
         transform: translateX(-100%);
         width: max-content;
         background: var(--clr-bright-blue);
         color: white;
-        padding: 0.5rem;
+        padding: 0.6rem 1.5rem;
         z-index: 999;
         transition: opacity 0.25s;
         // 🔻 this gets changed with javaScript
