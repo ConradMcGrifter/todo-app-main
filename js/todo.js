@@ -179,6 +179,7 @@ const getTodos = () => {
 
     let savedTasks = JSON.parse(localStorage.getItem("activeTasks"));
 
+    // create todo element for every item in the savedTasks array
     savedTasks.forEach((task) => {
         // create elements to be added to the DOM
         const TODO_ITEM = document.createElement("li");
@@ -199,7 +200,7 @@ const getTodos = () => {
         TODO_ITEM.append(TODO_CLOSE);
         TODO_LIST.append(TODO_ITEM);
 
-        // 🔔 event listener for the circle checkbox
+        // 📁  event listener for the circle checkbox from local storage
         CHECKBOX.addEventListener("click", () => {
             CHECKBOX.classList.toggle("toggleCheck");
             TODO_TEXT.classList.toggle("completed");
@@ -213,16 +214,18 @@ const getTodos = () => {
                 filterCompleted();
             }
 
+            //if the circle is checked --> remove todo text from local storage, else add it back to local storage if unchecked
             if (CHECKBOX.classList.contains("toggleCheck")) {
                 removeFromLocalStorage(TODO_TEXT.innerText);
             } else {
                 saveLocalStorage(TODO_TEXT.innerText);
             }
+
             setGlobalArrayValues();
             displayTasksLeft();
         });
 
-        // 🔔 event listener for the todo-text --> it is the same code as the event listener for checkbox
+        // 📁  event listener for the todo-text from local storage--> it is the same code as the event listener for checkbox
         TODO_TEXT.addEventListener("click", () => {
             CHECKBOX.classList.toggle("toggleCheck");
             TODO_TEXT.classList.toggle("completed");
@@ -241,7 +244,7 @@ const getTodos = () => {
             displayTasksLeft();
         });
 
-        // 🔔 event listener for the "X" close button
+        // 📁  event listener for the "X" close button from local storage
         TODO_CLOSE.addEventListener("click", () => {
             //this animation runs before the item is rmoved
             TODO_ITEM.style.animation = "fadeOut .25s ease";
@@ -270,18 +273,17 @@ const getTodos = () => {
                 }
             }, 250);
 
+            // remove todo text from local storage
             removeFromLocalStorage(TODO_TEXT.innerText);
         });
     });
 
     setGlobalArrayValues();
 
-    //display task count
+    //display current task count
     document.querySelector(
         ".itemsLeft"
     ).innerText = `${savedTasks.length} items left`;
-
-    console.log(savedTasks);
 };
 //-------------------------------------------------------------------------
 const createTodo = () => {
@@ -343,6 +345,7 @@ const createTodo = () => {
             filterCompleted();
         }
 
+        //if the circle is checked --> remove todo text from local storage, else add it back to local storage if unchecked
         if (CHECKBOX.classList.contains("toggleCheck")) {
             removeFromLocalStorage(TODO_TEXT.innerText);
         } else {
@@ -374,10 +377,10 @@ const createTodo = () => {
 
     // 🔔 event listener for the "X" close button
     TODO_CLOSE.addEventListener("click", () => {
-        //this animation runs before the item is rmoved
+        // this animation runs before the item is rmoved
         TODO_ITEM.style.animation = "fadeOut .25s ease";
 
-        //this code runs after 350 milliseconds so that the animation has time to play
+        // this code runs after 350 milliseconds so that the animation has time to play
         setTimeout(function () {
             TODO_ITEM.remove();
             setGlobalArrayValues();
@@ -392,7 +395,7 @@ const createTodo = () => {
 
             displayTasksLeft();
 
-            //hide the entire todo-container if there are no completed or active tasks left
+            // hide the entire todo-container if there are no completed or active tasks left
             if (
                 globalCompletedArr.length === 0 &&
                 globalActiveArr.length === 0
@@ -401,14 +404,17 @@ const createTodo = () => {
             }
         }, 250);
 
+        // remove todo text from local storage
         removeFromLocalStorage(TODO_TEXT.innerText);
     });
 
+    // save the todo text to local storage
     saveLocalStorage(TODO_TEXT.innerText);
 
     TODO_INPUT.value = ""; // reset input field to blank after user creates to-do item
     displayTasksLeft();
 };
+//-------------------------------------------------------------------------
 
 // -------------------🔔 🔔 EVENT LISTENERS🔔 🔔-------------------
 
