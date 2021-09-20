@@ -168,7 +168,7 @@ const removeFromLocalStorage = (todoText) => {
 };
 //-------------------------------------------------------------------------
 
-const getTodos = () => {
+const getSavedTodos = () => {
     //if there is nothing saved in activeTasks dont run the code
     if (
         localStorage.getItem("activeTasks") === "[]" ||
@@ -242,8 +242,14 @@ const getTodos = () => {
                 filterCompleted();
             }
 
-            setGlobalArrayValues();
+            //if the circle is checked --> remove todo text from local storage, else add it back to local storage if unchecked
+            if (CHECKBOX.classList.contains("toggleCheck")) {
+                removeFromLocalStorage(TODO_TEXT.innerText);
+            } else {
+                saveLocalStorage(TODO_TEXT.innerText);
+            }
 
+            setGlobalArrayValues();
             displayTasksLeft();
         });
 
@@ -374,8 +380,14 @@ const createTodo = () => {
             filterCompleted();
         }
 
-        setGlobalArrayValues();
+        //if the circle is checked --> remove todo text from local storage, else add it back to local storage if unchecked
+        if (CHECKBOX.classList.contains("toggleCheck")) {
+            removeFromLocalStorage(TODO_TEXT.innerText);
+        } else {
+            saveLocalStorage(TODO_TEXT.innerText);
+        }
 
+        setGlobalArrayValues();
         displayTasksLeft();
     });
 
@@ -447,7 +459,7 @@ TODO_INPUT.addEventListener("keyup", (event) => {
 });
 
 // 🔻when page is loaded --> create todos that are saved in local storage
-document.addEventListener("DOMContentLoaded", getTodos);
+document.addEventListener("DOMContentLoaded", getSavedTodos);
 
 // 🔻 create todo item when the input circle is clicked
 INPUT_CIRCLE.addEventListener("click", createTodo);
