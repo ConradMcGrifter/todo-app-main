@@ -436,6 +436,9 @@ TODO_INPUT.addEventListener("keyup", (event) => {
     }
 });
 
+// 🔻when page is loaded --> create todos that are saved in local storage
+document.addEventListener("DOMContentLoaded", getTodos);
+
 // 🔻 create todo item when the input circle is clicked
 INPUT_CIRCLE.addEventListener("click", createTodo);
 
@@ -452,5 +455,3 @@ TODO_INPUT.addEventListener("input", () => {
         INPUT_WRAP.style.setProperty("--opacity", 0);
     }
 });
-
-getTodos();
