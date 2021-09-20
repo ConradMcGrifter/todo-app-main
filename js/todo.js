@@ -134,15 +134,16 @@ const showAll = () => {
     }
 };
 //-------------------------------------------------------------------------
+
 const saveLocalStorage = (todoText) => {
     let task = todoText;
 
-    //check if there are any tasks saved in local storage, if not --> make an empty array
+    //check if there are any tasks saved in local storage, if not --> make an empty array (local storage only takes strings as args)
     if (localStorage.getItem("activeTasks") === null) {
         localStorage.setItem("activeTasks", "[]");
     }
 
-    // get the tasks saved in local storage
+    // get the tasks saved in local storage. JSON.parse() converts the string array into an actual array we can work with
     let saved_tasks = JSON.parse(localStorage.getItem("activeTasks"));
 
     //add the new task to saved_tasks array
@@ -168,6 +169,7 @@ const removeFromLocalStorage = (todoText) => {
 //-------------------------------------------------------------------------
 
 const getTodos = () => {
+    //if there is nothing saved in activeTasks dont run the code
     if (
         localStorage.getItem("activeTasks") === "[]" ||
         localStorage.getItem("activeTasks") === null
@@ -177,6 +179,7 @@ const getTodos = () => {
 
     TODO_CONTAINER.classList.add("active");
 
+    // get the string array of saved todos from "activeTasks" and parse it into an array that we can work with
     let savedTasks = JSON.parse(localStorage.getItem("activeTasks"));
 
     // create todo element for every item in the savedTasks array
@@ -286,6 +289,7 @@ const getTodos = () => {
     ).innerText = `${savedTasks.length} items left`;
 };
 //-------------------------------------------------------------------------
+
 const createTodo = () => {
     if (TODO_INPUT.value == "") {
         INPUT_WRAP.style.setProperty("--opacity", 1);
