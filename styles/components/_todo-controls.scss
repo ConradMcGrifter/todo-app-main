@@ -51,23 +51,29 @@
         }
 
         .filter-li {
-            cursor: pointer;
             list-style: none;
-            font-size: 1.7rem;
-            font-weight: 700;
-            color: var(--clr-text-secondary);
-            transition: color 0.25s;
-
-            &:hover {
-                color: var(--clr-bright-blue);
-            }
-
-            &.selected {
-                color: var(--clr-bright-blue);
-            }
 
             & + .filter-li {
                 margin-left: 2.5rem;
+            }
+
+            button {
+                cursor: pointer;
+                background: none;
+                border: none;
+                font-size: 1.7rem;
+                font-weight: 700;
+                color: var(--clr-text-secondary);
+                transition: color 0.25s;
+                font-family: $font-stack;
+
+                &:hover {
+                    color: var(--clr-bright-blue);
+                }
+
+                &.selected {
+                    color: var(--clr-bright-blue);
+                }
             }
         }
     }

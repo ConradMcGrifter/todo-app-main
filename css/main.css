@@ -429,25 +429,31 @@ body {
 }
 
 .todo-controls > .filter-controls--wrap .filter-li {
-  cursor: pointer;
   list-style: none;
+}
+
+.todo-controls > .filter-controls--wrap .filter-li + .filter-li {
+  margin-left: 2.5rem;
+}
+
+.todo-controls > .filter-controls--wrap .filter-li button {
+  cursor: pointer;
+  background: none;
+  border: none;
   font-size: 1.7rem;
   font-weight: 700;
   color: var(--clr-text-secondary);
   -webkit-transition: color 0.25s;
   transition: color 0.25s;
+  font-family: "Josefin Sans", sans-serif;
 }
 
-.todo-controls > .filter-controls--wrap .filter-li:hover {
+.todo-controls > .filter-controls--wrap .filter-li button:hover {
   color: var(--clr-bright-blue);
 }
 
-.todo-controls > .filter-controls--wrap .filter-li.selected {
+.todo-controls > .filter-controls--wrap .filter-li button.selected {
   color: var(--clr-bright-blue);
-}
-
-.todo-controls > .filter-controls--wrap .filter-li + .filter-li {
-  margin-left: 2.5rem;
 }
 
 .header {

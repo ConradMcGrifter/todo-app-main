@@ -177,9 +177,10 @@ const getSavedTodos = () => {
         return;
     }
 
+    // display the todo container (it holds the todo list + todo control panel)
     TODO_CONTAINER.classList.add("active");
 
-    // get the string array of saved todos from "activeTasks" and parse it into an array that we can work with
+    // get the string array of saved todos from "activeTasks" in local storage and parse it into an array that we can work with
     let savedTasks = JSON.parse(localStorage.getItem("activeTasks"));
 
     // create todo element for every item in the savedTasks array
@@ -471,7 +472,7 @@ COMPLETED_FILTER.addEventListener("click", filterCompleted);
 
 ALL_FILTER.addEventListener("click", showAll);
 
-// 🔻 on input --> if input value does not equal an empty string --> hide tooltip
+// 🔻 on input --> if input value does not equal an empty string --> hide "empty input" tooltip
 TODO_INPUT.addEventListener("input", () => {
     if (TODO_INPUT.value != "") {
         INPUT_WRAP.style.setProperty("--opacity", 0);
